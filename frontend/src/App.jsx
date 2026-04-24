@@ -1,66 +1,61 @@
-import { useSelector } from 'react-redux'
-import { selectTheme } from './store/slice/themeSlice'
-import ThemeToggle from './components/ThemeToggle'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import LandingPage from './pages/LandingPage';
+import ExplorePage from './pages/ExplorePage';
+import MapPage from './pages/MapPage';
+import HomeDetailPage from './pages/HomeDetailPage';
+import SchemesPage from './pages/SchemesPage';
+import ServicesPage from './pages/ServicesPage';
+import LoanOptimizerPage from './pages/LoanOptimizerPage';
+import UserDashboard from './pages/UserDashboard';
+import VirtualToursPage from './pages/VirtualToursPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import SellHomePage from './pages/SellHomePage';
+import { Toaster } from 'react-hot-toast';
+import SplashScreen from './components/SplashScreen';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
-  const theme = useSelector(selectTheme)
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
-      <header className="flex justify-between items-center p-6 border-b border-[var(--border-color)]">
-        <h1 className="text-2xl font-bold">HomeTruth AI</h1>
-        <ThemeToggle />
-      </header>
-      
-      <main className="p-8">
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-semibold mb-4">Theme Engine Demo</h2>
-          
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="p-6 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm">
-              <h3 className="text-lg font-medium mb-2">Card Component</h3>
-              <p className="text-[var(--text-secondary)]">
-                This card uses CSS variables defined in theme. The background adapts to dark/light mode automatically.
-              </p>
-            </div>
-            
-            <div className="p-6 rounded-lg bg-[var(--card-bg)] border border-[var(--border-color)] shadow-sm">
-              <h3 className="text-lg font-medium mb-2">Theme Status</h3>
-              <p className="text-[var(--text-secondary)]">
-                Current theme: <span className="font-mono font-bold">{theme}</span>
-              </p>
-              <p className="text-[var(--text-secondary)] mt-2">
-                Theme persists via localStorage on page refresh.
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-8 p-6 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)]">
-            <h3 className="text-lg font-medium mb-4">CSS Variables Available</h3>
-            <div className="grid gap-2 text-sm font-mono">
-              <div className="flex justify-between">
-                <span>--bg-primary</span>
-                <span className="text-[var(--text-secondary)]">{theme === 'dark' ? '#111827' : '#ffffff'}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>--bg-secondary</span>
-                <span className="text-[var(--text-secondary)]">{theme === 'dark' ? '#1f2937' : '#f9fafb'}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>--text-primary</span>
-                <span className="text-[var(--text-secondary)]">{theme === 'dark' ? '#f9fafb' : '#1f2937'}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>--text-secondary</span>
-                <span className="text-[var(--text-secondary)]">{theme === 'dark' ? '#9ca3af' : '#6b7280'}</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-  )
+    <BrowserRouter>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <SplashScreen onLoadingComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
+      {!isLoading && (
+        <>
+          <Toaster position="top-right" />
+          <Routes>
+            {/* Full-screen routes (no Navbar / Footer) */}
+            <Route path="/map" element={<MapPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+
+            {/* Main app routes with Navbar and Footer */}
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<LandingPage />} />
+              <Route path="explore" element={<ExplorePage />} />
+              <Route path="home/:id" element={<HomeDetailPage />} />
+              <Route path="schemes" element={<SchemesPage />} />
+              <Route path="services" element={<ServicesPage />} />
+              <Route path="loan-optimizer" element={<LoanOptimizerPage />} />
+              <Route path="dashboard" element={<UserDashboard />} />
+              <Route path="virtual-tours" element={<VirtualToursPage />} />
+              <Route path="sell-home" element={<SellHomePage />} />
+            </Route>
+          </Routes>
+        </>
+      )}
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
