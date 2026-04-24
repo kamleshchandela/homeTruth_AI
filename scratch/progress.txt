@@ -7,3 +7,4 @@
 "feat/property-controllers created" 
 "feat/service-provider-model created" 
 "feat/booking-model created" 
+"feat/report-model created" 
