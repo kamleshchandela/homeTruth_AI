@@ -9,3 +9,4 @@
 "feat/booking-model created" 
 "feat/report-model created" 
 "feat/loan-model created" 
+"feat/scheme-model created" 
