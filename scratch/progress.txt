@@ -4,3 +4,4 @@
 "feat/auth-controllers created" 
 "feat/property-model created" 
 "feat/property-routes created" 
+"feat/property-controllers created" 
