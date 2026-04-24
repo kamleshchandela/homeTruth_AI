@@ -1,135 +1,73 @@
-# HomeTruth AI - Frontend
+# React + TypeScript + Vite
 
-A modern and responsive frontend application built with React and Vite, featuring smooth animations and a component-based architecture.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Tech Stack
+Currently, two official plugins are available:
 
-| Technology | Purpose |
-|------------|---------|
-| React 19.2.0 | UI Framework |
-| Vite 7.2.4 | Build Tool |
-| Framer Motion 12.0.0 | Animation Library |
-| ESLint 9.39.1 | Code Quality |
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Project Structure
+## React Compiler
 
-```
-frontend/
-├── src/
-│   ├── assets/         # Static assets (images, icons, fonts)
-│   ├── components/    # Reusable UI components
-│   ├── hooks/         # Custom React hooks
-│   ├── layouts/       # Page layout components
-│   ├── pages/        # Page-level components
-│   ├── services/     # API and external services
-│   ├── store/       # State management
-│   ├── utils/       # Utility functions
-│   ├── App.jsx      # Root component
-│   ├── App.css      # Global styles
-│   ├── index.css    # Base styles
-│   └── main.jsx     # Application entry point
-├── public/           # Public static files
-├── index.html       # HTML template
-└── package.json    # Dependencies and scripts
-```
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Getting Started
+## Expanding the ESLint configuration
 
-### Prerequisites
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- Node.js (v18 or higher)
-- npm
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-### Installation
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-```bash
-# Navigate to the frontend directory
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build locally
-npm run preview
-
-# Run code quality checks
-npm run lint
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## Figma Design Reference
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-The complete UI/UX design is available on Figma. All team members should reference this design during development to maintain consistency.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-**Figma Link:** `https://www.figma.com/design/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=0-1&t=GnZsAAonpc8pnGSi-1`
-
-### Design Guidelines
-
-- All components should match the colors, typography, and spacing defined in the Figma file
-- Responsive breakpoints follow the design specifications
-- Icons and images should be used as provided in the design assets
-
-## Usage
-
-### Creating a New Component
-
-1. Create a new file in `src/components/`
-2. Follow the existing component patterns
-3. Export the component as a named export
-4. Import and use in your pages
-
-### Adding a New Page
-
-1. Create a new file in `src/pages/`
-2. Add routing in App.jsx
-3. Link from navigation
-
-### Running Development Server
-
-The development server runs with hot module replacement. Access the app at `http://localhost:5173` after running `npm run dev`.
-
-## Contribution Guidelines
-
-1. **Branch Management**
-   - Create a new branch for each feature or bug fix
-   - Use descriptive branch names: `feature/component-name` or `fix/issue-description`
-
-2. **Code Standards**
-   - Follow the existing code style and patterns
-   - Run `npm run lint` before committing
-   - Ensure no linting errors
-
-3. **Commit Messages**
-   - Use clear and descriptive commit messages
-   - Format: `type: description` (e.g., `feat: add login form component`)
-
-4. **Pull Requests**
-   - Keep PRs focused and reasonably sized
-   - Include a clear description of changes
-   - Reference any related issues
-
-5. **Testing**
-   - Test your changes locally before submitting
-   - Ensure the development server runs without errors
-
-## Available Scripts
-
-| Command | Description |
-|--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run code quality checks |
-
-## License
-
-This project is for academic/professional use. All rights reserved.
-
----
-
-For questions or issues, please contact the project maintainer.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
