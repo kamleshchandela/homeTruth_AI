@@ -13,3 +13,4 @@
 "feat/backend-scratch-tools created" 
 "feat/backend-scratch-reset created" 
 "feat/frontend-env created" 
+"feat/frontend-assets-icons created" 
