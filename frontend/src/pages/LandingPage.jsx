@@ -71,38 +71,60 @@ const LandingPage = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.015]"></div>
       </div>
 
-      {/* Hero Section - Stats Removed */}
-      <section className="relative z-10 h-screen min-h-[600px] flex items-center justify-center px-6 lg:px-12 xl:px-24 overflow-hidden pt-12">
-        <div className="max-w-[1800px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+      {/* Hero Section */}
+      <section className="relative z-10 h-screen min-h-[600px] flex items-center justify-center px-6 lg:px-12 xl:px-20 overflow-hidden pt-16">
+        <div className="max-w-[1600px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center h-full py-8">
           
           {/* Left: Content */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-7 space-y-8 text-center lg:text-left"
+            className="lg:col-span-6 space-y-6 text-center lg:text-left flex flex-col justify-center"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel border-amber-primary/20 bg-amber-primary/5 text-amber-primary text-[10px] font-black uppercase tracking-[0.3em] backdrop-blur-md">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border-amber-primary/20 bg-amber-primary/5 text-amber-primary text-[9px] font-black uppercase tracking-[0.3em] backdrop-blur-md w-fit mx-auto lg:mx-0">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-primary animate-ping"></span>
               Prop-Tech Innovation 2026
             </div>
             
-            <h1 className="text-6xl sm:text-7xl xl:text-8xl 2xl:text-9xl font-serif font-bold leading-[0.95] tracking-tighter text-white">
-              Know the <span className="text-gradient">Truth</span><br />
-              Before You <span className="italic">Lease.</span>
+            {/* Hero Heading — balanced for all screen sizes */}
+            <h1 className="font-serif font-bold leading-[1] tracking-tight text-white"
+              style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)' }}
+            >
+              Know the{' '}
+              <span className="text-gradient">Truth</span>
+              <br />
+              Before You{' '}
+              <span className="italic">Lease.</span>
             </h1>
             
-            <p className="text-lg sm:text-xl xl:text-2xl text-white/40 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0">
-              India's first AI-powered property platform that reveals hidden risks, legal status, and real-time community insights.
+            {/* Subtitle */}
+            <p
+              className="text-white/40 leading-relaxed font-light max-w-lg mx-auto lg:mx-0"
+              style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.15rem)' }}
+            >
+              India's first AI-powered property platform that reveals hidden risks,
+              legal status, and real-time community insights.
             </p>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+              {['AI Risk Scan', 'Legal Verified', 'Community Insights'].map((tag) => (
+                <span key={tag} className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border border-amber-primary/20 text-amber-primary/70 bg-amber-primary/5">
+                  ✦ {tag}
+                </span>
+              ))}
+            </div>
             
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4">
-              <Link to="/explore" className="btn-amber group !py-5 !px-10 text-xl shadow-amber-glow w-full sm:w-auto">
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+              <Link to="/explore" className="btn-amber group !py-3.5 !px-8 text-base shadow-amber-glow w-full sm:w-auto">
                 Start Exploring
-                <ArrowRight className="group-hover:translate-x-3 transition-transform" size={24} />
+                <ArrowRight className="group-hover:translate-x-2 transition-transform" size={20} />
               </Link>
-              <Link to="/virtual-tours" className="btn-glass !py-5 !px-10 text-xl flex items-center justify-center gap-4 w-full sm:w-auto backdrop-blur-3xl">
-                <Play size={20} fill="currentColor" />
+              <Link to="/virtual-tours" className="btn-glass !py-3.5 !px-8 text-base flex items-center justify-center gap-3 w-full sm:w-auto backdrop-blur-3xl">
+                <Play size={16} fill="currentColor" />
                 Live 3D Tours
               </Link>
             </div>
@@ -113,45 +135,65 @@ const LandingPage = () => {
             initial={{ opacity: 0, scale: 0.95, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="lg:col-span-5 relative group flex items-center justify-center"
+            className="lg:col-span-6 relative group flex items-center justify-center"
           >
-            <div className="relative aspect-square w-full max-w-[600px] rounded-[3rem] overflow-hidden shadow-premium border border-white/10 group-hover:shadow-amber-glow transition-all duration-700">
-              <img 
-                src="/assets/images/hero_villa.png" 
-                alt="Luxury Home" 
-                className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0905] via-transparent to-transparent"></div>
+            <div className="relative w-full max-w-[540px] mx-auto" style={{ aspectRatio: '4/4.2' }}>
+              {/* Main Image Card */}
+              <div className="w-full h-full rounded-[2.5rem] overflow-hidden shadow-premium border border-white/10 group-hover:shadow-amber-glow transition-all duration-700">
+                <img 
+                  src="/assets/images/hero_villa.png" 
+                  alt="Luxury Home" 
+                  className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F0905]/60 via-transparent to-transparent rounded-[2.5rem]"></div>
+              </div>
               
+              {/* Floating Badge - Safety Status */}
               <motion.div 
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-12 -left-8 p-6 glass-panel rounded-2xl border-white/10 shadow-premium backdrop-blur-2xl z-20"
+                className="absolute top-8 -left-6 p-4 glass-panel rounded-2xl border-white/10 shadow-premium backdrop-blur-2xl z-20"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-success/20 flex items-center justify-center border border-success/30">
-                    <Shield className="text-success" size={24} />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-success/20 flex items-center justify-center border border-success/30">
+                    <Shield className="text-success" size={20} />
                   </div>
                   <div>
-                    <p className="text-[9px] text-white/40 uppercase font-black tracking-widest">Safety Status</p>
-                    <p className="text-lg font-bold text-success">Verified A+</p>
+                    <p className="text-[8px] text-white/40 uppercase font-black tracking-widest">Safety Status</p>
+                    <p className="text-sm font-bold text-success">Verified A+</p>
                   </div>
                 </div>
               </motion.div>
 
+              {/* Floating Badge - Neighborhood */}
               <motion.div 
-                animate={{ y: [0, 10, 0] }}
+                animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-12 -right-8 p-6 glass-panel rounded-2xl border-white/10 shadow-premium backdrop-blur-2xl z-20"
+                className="absolute bottom-8 -right-6 p-4 glass-panel rounded-2xl border-white/10 shadow-premium backdrop-blur-2xl z-20"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-primary/20 flex items-center justify-center border border-amber-primary/30">
-                    <Map className="text-amber-primary" size={24} />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-primary/20 flex items-center justify-center border border-amber-primary/30">
+                    <Map className="text-amber-primary" size={20} />
                   </div>
                   <div>
-                    <p className="text-[9px] text-white/40 uppercase font-black tracking-widest">Neighborhood</p>
-                    <p className="text-lg font-bold">Satellite, AHMD</p>
+                    <p className="text-[8px] text-white/40 uppercase font-black tracking-widest">Neighborhood</p>
+                    <p className="text-sm font-bold">Satellite, AHMD</p>
                   </div>
+                </div>
+              </motion.div>
+
+              {/* Trust Score pill */}
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/2 -right-4 -translate-y-1/2 px-4 py-3 glass-panel rounded-2xl border-amber-primary/20 backdrop-blur-2xl z-20 text-center"
+              >
+                <p className="text-[8px] text-white/40 uppercase tracking-widest font-black">AI Score</p>
+                <p className="text-xl font-bold text-amber-primary">9.4</p>
+                <div className="flex gap-0.5 mt-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={8} className="text-amber-primary fill-amber-primary" />
+                  ))}
                 </div>
               </motion.div>
             </div>
