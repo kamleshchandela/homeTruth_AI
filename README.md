@@ -2,11 +2,11 @@
 
 <div align="center">
 
-[![Next.js](https://img.shields.io/badge/Frontend-React%2018%2B-blue?style=for-the-badge&logo=react)](https://react.dev)
+[![React](https://img.shields.io/badge/Frontend-React%2018%2B-blue?style=for-the-badge&logo=react)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge&logo=nodedotjs)](https://nodejs.org)
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB-yellowgreen?style=for-the-badge&logo=mongodb)](https://www.mongodb.com)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge)](https://github.com)
+[![Vercel](https://img.shields.io/badge/Deployment-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![Status](https://img.shields.io/badge/Status-Productionready-brightgreen?style=for-the-badge)](https://home-truth-ai.vercel.app)
 
 </div>
 
@@ -31,15 +31,18 @@ Our platform delivers:
 
 ## ❗ Problem Statement
 
-In today's housing ecosystem, individuals face significant challenges when making one of the most important financial decisions of their lives — choosing a home. The process is broken across five dimensions:
+In today's housing ecosystem, individuals face significant challenges when making one of the most important financial decisions of their lives — choosing a home. The process is broken across multiple dimensions:
 
 | Challenge | Impact |
 |------------|--------|
+| **Fragmented Platforms** | No single source for renting, buying, loans, and services |
 | **Fake/Misleading Listings** | No verified data on property's actual condition |
 | **Hidden Costs** | Maintenance, utilities, repairs never disclosed upfront |
 | **Complex Government Schemes** | Most eligible people never claim benefits they deserve |
 | **Loan Inefficiency** | No intelligent comparison between bank offers |
 | **Unreliable Services** | No accountability, fake reviews, unpredictable pricing |
+| **Platform Confusion** | Users switch between WhatsApp, Sulekha, NoBroker, 99acres |
+| **Location Blindness** | No visibility on nearby hospitals, gardens, essentials |
 
 There is no single integrated platform that combines all of these into one seamless, intelligent, trustworthy experience.
 
@@ -56,36 +59,58 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 5. **Government Benefits** — Instant eligibility calculation for subsidies
 6. **Smart Loans** — Bank comparison with negotiation scripts
 7. **Verified Services** — Book trusted plumbers, electricians, AC repair
+8. **Location Intelligence** — Interactive maps with nearby hospitals, gardens, essential services
+9. **3D Visualization** — Virtual home tours before visiting in person
 
 ---
 
 ## ✨ Key Features
 
-### 🔬 Core Intelligence
+### 🔬 Property Discovery & Intelligence
 
 - **🏥 House Health Score** — Animated circular progress (0-100) with severity-based coloring
 - **🔍 Hidden Risk Detector** — AI flags dampness, power issues, water shortage, structural concerns
 - **💰 True Cost Receipt** — Line-item expense breakdown formatted like an invoice
 - **📈 Regret Predictor** — Statistical insights on common renter regrets
 - **👥 People Like You** — Behavioral patterns from similar user profiles
-
-### 🗺️ Exploration
-
-- **🗺️ Interactive Map** — Leaflet.js map with color-coded risk pins, heatmap layers
-- **🏠 3D House Model** — Three.js digital twin with problem area highlighting
 - **⚖️ Compare Homes** — Side-by-side comparison of 2-3 properties
+
+### 🗺️ Map-Based Exploration
+
+- **🗺️ Interactive Map** — Google Maps integration with color-coded risk pins
+- **🏥 Nearby Hospitals** — Auto-detected hospitals within radius
+- **🌳 Nearby Gardens** — Parks and green spaces visualization
+- **🏪 Essential Locations** — Grocery, metro, schools proximity
+- **📍 Location Search** — Autocomplete address lookup
+
+### 🧊 3D Visualization
+
+- **🏠 3D House Model** — Three.js digital twin with problem area highlighting
+- **🎥 Virtual Tours** — Immersive property walkthroughs
+- **📱 Device Compatible** — Works on mobile and desktop
 
 ### 💰 Financial Tools
 
 - **📊 Future Cost Simulator** — Inflation-adjusted 5-year projections
 - **🏛️ Government Schemes** — Personalized eligibility checker with deadline trackers
 - **🏦 Loan Optimizer** — Bank comparison, smart profile improver, negotiation engine
+- **🧮 EMI Calculator** — Real-time monthly payment calculations
+- **📉 Interest Rate Comparison** — SBI, HDFC, ICICI, Axis Bank live rates
 
-### 🛠️ Services
+### 🛠️ Home Services
 
-- **🔧 Service Marketplace** — Verified professionals with ratings and live tracking
-- **📅 Booking System** — Calendar scheduling, photo upload, payment integration
+- **🔧 Service Marketplace** — Verified professionals with ratings
+- **📅 Booking System** — Calendar scheduling, photo upload
+- **🛒 On-Demand Services** — Electrician, Plumber, AC Repair, Carpenter
 - **📊 Provider Dashboard** — Dedicated dashboard for service providers
+- **⭐ Rating System** — Community verified reviews
+
+### 📲 Property Listing
+
+- **💼 Sell Your Home** — Easy listing creation workflow
+- **🏠 Rent Your Property** — Quick rental listing
+- **📱 WhatsApp Integration** — Contact sellers via WhatsApp
+- **📸 Image Upload** — Cloudinary-powered media management
 
 ### 👤 User Experience
 
@@ -93,6 +118,42 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 - **📱 Fully Responsive** — Mobile, tablet, and desktop optimized
 - **🤖 AI Chat Interface** — Ask questions about any property
 - **📄 True Cost Report** — Downloadable PDF financial summary
+
+---
+
+## 🏛️ Government Schemes Included
+
+Our platform integrates real government housing schemes with eligibility checking:
+
+| Scheme | Benefit | Status |
+|--------|---------|--------|
+| **Pradhan Mantri Awas Yojana (PMAY)** | Up to ₹2.67 Lakh subsidy | Active |
+| **Section 80EEA Tax Deduction** | ₹1.5 Lakh deduction | Expired |
+| **State Stamp Duty Rebate** | 1-2% of property value | Active |
+| **Section 24(b) Interest Deduction** | ₹2 Lakh/year | Active |
+
+Each scheme includes:
+- Official eligibility criteria
+- Required documents list
+- Direct apply links
+- Deadline trackers
+
+---
+
+## 🏦 Home Loan Partners
+
+| Bank | Interest Rate | Processing Fee | Key Feature |
+|------|---------------|----------------|-------------|
+| **SBI** | 8.40% | ~0.35% | Lowest rates for women |
+| **HDFC** | 8.50% | ~0.50% | Fast approval |
+| **ICICI** | 8.60% | ~0.50% | Low documents |
+| **Axis Bank** | 8.70% | ~0.50% | Flexible options |
+
+Each bank includes:
+- Direct link to official loan page
+- Document checklist
+- Eligibility requirements
+- EMI calculator integration
 
 ---
 
@@ -111,8 +172,8 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 | React Query | Data fetching |
 | Formik + Yup | Form handling |
 | Recharts | Data visualization |
-| Leaflet.js | Interactive maps |
-| Three.js | 3D models |
+| Google Maps API | Interactive maps |
+| Three.js / React Three Fiber | 3D models |
 | Lottie React | Animations |
 | React Hot Toast | Notifications |
 
@@ -127,16 +188,16 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 | Bcrypt | Password hashing |
 | Helmet | Security headers |
 | Express Validator | Input validation |
+| Cloudinary | Image uploads |
 
-### Integrations
+### Deployment
 
 | Service | Purpose |
 |---------|---------|
-| Google OAuth | Social login |
-| Cloudinary | Image uploads |
-| EmailJS | Contact forms |
-| Razorpay/Stripe | Payments |
-| Firebase | Push notifications |
+| Vercel | Frontend hosting |
+| Render | Backend hosting |
+| MongoDB Atlas | Database |
+| Cloudinary | Media storage |
 
 ---
 
@@ -144,71 +205,54 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 
 ```
 HomeTruth AI/
-├── client/                          # Frontend application
-│   ├── public/
-│   │   └── favicon.ico
+├── frontend/                      # React + Vite application
 │   ├── src/
-│   │   ├── assets/                # Static assets
-│   │   ├── components/            # Reusable components
-│   │   │   ├── common/           # Buttons, inputs, cards
-│   │   │   ├── layout/            # Navbar, Footer, Sidebar
-│   │   │   └── features/         # Feature-specific components
-│   │   ├── config/               # Configuration files
-│   │   ├── contexts/             # React contexts
-│   │   ├── hooks/                # Custom hooks
+│   │   ├── components/           # Reusable UI components
+│   │   │   ├── ThreeViewer.jsx   # 3D model viewer
+│   │   │   ├── ThreeViewerModal.jsx
+│   │   │   ├── ThemeToggle.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   └── SplashScreen.jsx
 │   │   ├── pages/               # Page components
-│   │   │   ├── Home/            # Landing page
-│   │   │   ├── Explore/         # Browse homes
-│   │   │   ├── HomeDetail/      # Property details
-│   │   │   ├── Map/             # Interactive map
-│   │   │   ├── Simulator/        # Cost simulator
-│   │   │   ├── Schemes/         # Government schemes
-│   │   │   ├── LoanOptimizer/  # Bank comparison
-│   │   │   ├── Services/       # Service marketplace
-│   │   │   ├── ProviderDashboard/
-│   │   │   ├── Dashboard/      # User dashboard
-│   │   │   ├── Admin/           # Admin panel
-│   │   │   ├── Compare/        # Compare homes
-│   │   │   ├── Chat/           # AI chat
-│   │   │   ├── Report/         # Download reports
-│   │   │   ├── SubmitListing/  # Add property
-│   │   │   ├── Auth/           # Login/Register
-│   │   │   └── NotFound/       # 404 page
-│   │   ├── redux/               # Redux store
-│   │   ├── styles/              # Global styles
-│   │   ├── utils/               # Utility functions
-│   │   ├── App.tsx
-│   │   └── main.tsx
-│   ├── .env.example
-│   ├── index.html
+│   │   │   ├── LandingPage.jsx
+│   │   │   ├── ExplorePage.jsx  # Property browsing
+│   │   │   ├── HomeDetailPage.jsx
+│   │   │   ├── MapPage.jsx     # Interactive maps
+│   │   │   ├── LoanOptimizerPage.jsx
+│   │   │   ├── SchemesPage.jsx # Government schemes
+│   │   │   ├── ServicesPage.jsx
+│   │   │   ├── SellHomePage.jsx
+│   │   │   ├── VirtualToursPage.jsx
+│   │   │   ├── AddPropertyPage.jsx
+│   │   │   ├── UserDashboard.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   └── SignupPage.jsx
+│   │   ├── services/
+│   │   │   └── api.js           # API client
+│   │   ├── store/               # Redux store
+│   │   ├── layouts/
+│   │   ├── index.css
+│   │   └── main.jsx
 │   ├── package.json
 │   ├── tailwind.config.js
-│   ├── tsconfig.json
-│   └── vite.config.ts
+│   └── vite.config.js
 │
-├── server/                        # Backend application
+├── backend/                      # Node.js + Express API
+│   ├── routes/
+│   │   ├── authRoutes.js        # Authentication
+│   │   └── propertyRoutes.js   # Property CRUD
+│   ├── controllers/
+│   ├── models/
+│   ├── utils/
+│   │   ├── email.js
+│   │   └── cloudinary.js
 │   ├── config/
-│   │   └── db.ts               # MongoDB connection
-│   ├── controllers/            # Route controllers
-│   ├── middlewares/            # Auth, validation
-│   ├── models/               # Mongoose schemas
-│   │   ├── User.ts
-│   │   ├── Home.ts
-│   │   ├── ServiceProvider.ts
-│   │   ├── Booking.ts
-│   │   ├── Scheme.ts
-│   │   ├── Loan.ts
-│   │   └── Report.ts
-│   ├── routes/               # API routes
-│   ├── utils/                # Helper functions
-│   ├── .env.example
-│   ├── index.ts              # Entry point
-│   └── package.json
+│   ├── seedExplore.js
+│   ├── package.json
+│   └── index.js
 │
-├── .gitignore
-├── LICENSE
 ├── README.md
-└── package.json              # Root package.json
+└── package.json
 ```
 
 ---
@@ -219,20 +263,21 @@ HomeTruth AI/
 
 - Node.js 18+
 - MongoDB Atlas account
+- Google Maps API Key (optional)
 - npm or yarn
 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/HomeTruth-AI.git
+git clone https://github.com/KamleshChandela/HomeTruth-AI.git
 cd HomeTruth-AI
 ```
 
 ### Environment Variables
 
-Create `.env` files in both `client/` and `server/` directories:
+Create `.env` files in both `frontend/` and `backend/` directories:
 
-**Server (.env)**
+**Backend (.env)**
 ```env
 PORT=5000
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/hometruth
@@ -241,79 +286,60 @@ JWT_EXPIRE=30d
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-RAZORPAY_KEY_ID=your_razorpay_key
-RAZORPAY_KEY_SECRET=your_razorpay_secret
 ```
 
-**Client (.env)**
+**Frontend (.env)**
 ```env
 VITE_API_URL=http://localhost:5000/api
-VITE_GOOGLE_CLIENT_ID=your_google_client_id
-VITE_CLOUDINARY_CLOUD_NAME=your_cloud_name
-VITE_FIREBASE_API_KEY=your_firebase_key
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_key
 ```
 
 ### Install Dependencies
 
-**Root**
-```bash
-npm install
-```
-
 **Backend**
 ```bash
-cd server
+cd backend
 npm install
 ```
 
 **Frontend**
 ```bash
-cd client
+cd frontend
 npm install
 ```
-
----
-
-## ▶️ Usage Instructions
 
 ### Start Development Server
 
 **Backend**
 ```bash
-cd server
+cd backend
 npm run dev
 ```
-Server runs on: `http://localhost:5000`
+Backend runs on: `http://localhost:5000`
 
 **Frontend**
 ```bash
-cd client
+cd frontend
 npm run dev
 ```
-Client runs on: `http://localhost:5173`
+Frontend runs on: `http://localhost:5173`
 
 ### Build for Production
 
 ```bash
-cd client
+cd frontend
 npm run build
 ```
 
-### API Endpoints
+---
 
-| Method | Endpoint | Description |
-|-------|----------|-------------|
-| POST | `/api/auth/register` | User registration |
-| POST | `/api/auth/login` | User login |
-| GET | `/api/homes` | List homes (with filters) |
-| GET | `/api/homes/:id` | Home details |
-| POST | `/api/homes` | Submit listing |
-| GET | `/api/services/providers` | Service providers |
-| POST | `/api/services/bookings` | Create booking |
-| GET | `/api/schemes` | Government schemes |
-| POST | `/api/loans/calculate` | Loan calculation |
+## 🚀 Deployment Links
+
+| Service | URL |
+|---------|-----|
+| **Frontend (Production)** | https://home-truth-ai.vercel.app/ |
+| **Backend (API)** | https://hometruth-ai.onrender.com |
+| **API Documentation** | _Coming Soon_ |
 
 ---
 
@@ -346,12 +372,12 @@ Our design follows a **Dark Glass Morphism** theme with glass-like translucent c
 | Prototype | Link |
 |-----------|------|
 | **Design** | [Figma Design](https://www.figma.com/design/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=0-1&t=GnZsAAonpc8pnGSi-1) |
-| **Mobile** | [Mobile Prototype](https://www.figma.com/proto/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=1-3&viewport=270%2C229%2C0.15&t=ojjeOfcX8u6RtGm0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A3&page-id=0%3A1&show-proto-sidebar=1) |
-| **Desktop** | [Desktop Prototype](https://www.figma.com/proto/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=13-2052&viewport=270%2C229%2C0.15&t=ojjeOfcX8u6RtGm0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=13%3A396&page-id=0%3A1&show-proto-sidebar=1) |
+| **Mobile Prototype** | [Mobile Proto](https://www.figma.com/proto/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=1-3&viewport=270%2C229%2C0.15&t=ojjeOfcX8u6RtGm0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A3&page-id=0%3A1&show-proto-sidebar=1) |
+| **Desktop Prototype** | [Desktop Proto](https://www.figma.com/proto/49FzHjaxbrvl4bJ2bSfvAI/Untitled?node-id=13-2052&viewport=270%2C229%2C0.15&t=ojjeOfcX8u6RtGm0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=13%3A396&page-id=0%3A1&show-proto-sidebar=1) |
 
 ---
 
-## 🚀 Roadmap
+## 🛤️ Roadmap
 
 ### Phase 1 — Foundation ✅
 - [x] Landing page with hero and stats
@@ -360,23 +386,25 @@ Our design follows a **Dark Glass Morphism** theme with glass-like translucent c
 - [x] Basic authentication
 
 ### Phase 2 — Intelligence 🔄
+- [x] Property Risk Detection
+- [x] Price Filters
+- [x] Health Score Display
 - [ ] AI Hidden Risk Detection
 - [ ] Future Cost Simulator
-- [ ] Regret Predictor
-- [ ] True Cost Receipt
 
 ### Phase 3 — Maps & 3D 🗺️
-- [ ] Interactive Map with layers
-- [ ] 3D House Model viewer
-- [ ] Compare Homes feature
+- [x] Interactive Map with layers
+- [x] 3D House Model viewer
+- [x] Compare Homes feature
+- [ ] Heatmap Layers
 
 ### Phase 4 — Financial Tools 💰
-- [ ] Government Schemes page
-- [ ] Loan Optimizer
-- [ ] Bank API integration
+- [x] Government Schemes page
+- [x] Loan Optimizer
+- [x] Bank API integration
 
 ### Phase 5 — Services 🔧
-- [ ] Service Marketplace
+- [x] Service Marketplace
 - [ ] Provider Dashboard
 - [ ] Live tracking
 
@@ -442,7 +470,7 @@ Swaminarayan University, Kalol
 
 | Skill | Technology |
 |-------|------------|
-| **Frontend** | React.js, TypeScript, Tailwind CSS |
+| **Frontend** | React.js, TypeScript, Tailwind CSS, Three.js |
 | **Backend** | Node.js, Express.js, MongoDB |
 | **AI** | Generative AI Integration |
 
@@ -452,10 +480,13 @@ Swaminarayan University, Kalol
 
 ### Connect
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/kamleshchandela)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)](https://github.com/kamleshchandela)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/kamleshchandela)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail)](mailto:kamleshchandela@example.com)
+| Platform | Link |
+|----------|-----|
+| **Portfolio** | https://kamleshchandela-portfolio.netlify.app/ |
+| **LinkedIn** | https://www.linkedin.com/in/kamlesh-chandela/ |
+| **Twitter (X)** | https://x.com/Kamlesh__cg |
+| **LeetCode** | https://leetcode.com/u/KamleshChandela/ |
+| **GitHub** | https://github.com/KamleshChandela |
 
 ---
 
