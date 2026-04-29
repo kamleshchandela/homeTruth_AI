@@ -339,7 +339,7 @@ npm run build
 |---------|-----|
 | **Frontend (Production)** | https://home-truth-ai.vercel.app/ |
 | **Backend (API)** | https://hometruth-ai.onrender.com |
-| **API Documentation** | _Coming Soon_ |
+| **API Documentation** | https://documenter.getpostman.com/view/50839341/2sBXqJLLzS |
 
 ---
 
