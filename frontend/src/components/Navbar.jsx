@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from '../store/slices/themeSlice';
-import { Sun, Moon, Menu, X, LogOut, ChevronDown, User } from 'lucide-react';
+import { Menu, X, LogOut, ChevronDown, User } from 'lucide-react';
 import { logout } from '../store/slices/authSlice';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -11,7 +10,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
-  const { mode } = useSelector((state) => state.theme);
   const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -73,12 +71,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center space-x-6">
-          <button
-            onClick={() => dispatch(toggleTheme())}
-            className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-amber-primary hover:border-amber-primary/30 hover:bg-amber-primary/5 transition-all duration-300"
-          >
-            {mode === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+
 
           {isAuthenticated ? (
             <div className="relative group">
