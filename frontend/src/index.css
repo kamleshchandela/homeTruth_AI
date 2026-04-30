@@ -70,10 +70,6 @@
     @apply bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-amber-primary/30 transition-all duration-500 shadow-premium hover:shadow-amber-glow;
   }
   
-  .glass-card-light {
-    @apply bg-white/70 backdrop-blur-md border border-black/5 shadow-lg;
-  }
-  
   .btn-amber {
     @apply bg-gradient-to-r from-amber-primary to-amber-secondary hover:from-amber-secondary hover:to-amber-primary text-dark-bg font-bold py-3 px-8 rounded-btn transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-amber-glow;
   }
@@ -87,17 +83,7 @@
   }
 }
 
-.dark {
-  --color-bg-current: var(--color-dark-bg);
-  background-color: var(--color-dark-bg);
-  color: rgba(255, 255, 255, 0.9);
-}
 
-.light {
-  --color-bg-current: var(--color-light-bg);
-  background-color: var(--color-light-bg);
-  color: #1A120B;
-}
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

@@ -4,7 +4,7 @@ import { Globe, Share2, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="glass-card dark:glass-card light:glass-card-light py-12 px-4 mt-20">
+    <footer className="glass-card py-12 px-4 mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2">
           <Link to="/" className="text-2xl font-serif font-bold text-amber-primary">HomeTruth AI</Link>
