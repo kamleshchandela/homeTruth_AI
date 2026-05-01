@@ -40,12 +40,9 @@ const SplashScreen = ({ onLoadingComplete }) => {
             damping: 20,
             delay: 0.2 
           }}
-          className="w-24 h-24 bg-amber-primary rounded-full flex items-center justify-center mb-8 shadow-[0_0_50px_rgba(245,166,35,0.3)] relative"
+          className="w-24 h-24 bg-white rounded-full flex items-center justify-center mb-8 shadow-[0_0_50px_rgba(255,255,255,0.2)] relative overflow-hidden p-4"
         >
-          <div className="relative flex items-center justify-center">
-            <Home className="w-10 h-10 text-[#2D1B0D] z-10" />
-            <div className="absolute -bottom-1 w-12 h-4 bg-[#2D1B0D]/20 blur-sm rounded-full" />
-          </div>
+          <img src="/favicon.png" alt="HomeTruth AI Logo" className="w-full h-full object-contain" />
         </motion.div>
 
         {/* Brand Name */}

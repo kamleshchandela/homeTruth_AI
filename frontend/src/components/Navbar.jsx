@@ -42,12 +42,7 @@ const Navbar = () => {
     }`}>
       <div className="max-w-[1600px] mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 group">
-          <div className="w-10 h-10 bg-gradient-to-tr from-amber-primary to-amber-secondary rounded-xl flex items-center justify-center shadow-amber-glow group-hover:rotate-12 transition-transform duration-500">
-            <span className="text-dark-bg font-serif font-black text-xl">H</span>
-          </div>
-          <span className="text-2xl font-serif font-bold text-white tracking-tight">
-            Home<span className="text-gradient">Truth</span>
-          </span>
+          <img src="/logo-full.png" alt="HomeTruth AI" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Menu */}
