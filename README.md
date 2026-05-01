@@ -77,7 +77,7 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 
 ### 🗺️ Map-Based Exploration
 
-- **🗺️ Interactive Map** — Google Maps integration with color-coded risk pins
+- **🗺️ Interactive Map** — Leaflet Maps integration with color-coded risk pins
 - **🏥 Nearby Hospitals** — Auto-detected hospitals within radius
 - **🌳 Nearby Gardens** — Parks and green spaces visualization
 - **🏪 Essential Locations** — Grocery, metro, schools proximity
@@ -118,6 +118,34 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 - **📱 Fully Responsive** — Mobile, tablet, and desktop optimized
 - **🤖 AI Chat Interface** — Ask questions about any property
 - **📄 True Cost Report** — Downloadable PDF financial summary
+
+---
+
+## 🖼️ UI Showcase
+
+### 🏠 Landing Page
+![Landing Page UI](https://via.placeholder.com/1200x600?text=Landing+Page+UI)
+
+### 🗺️ Interactive Map
+![Map Page UI](https://via.placeholder.com/1200x600?text=Map+Page+UI)
+
+### 📊 Property Details & Health Score
+![Property Details UI](https://via.placeholder.com/1200x600?text=Property+Details+UI)
+
+### 🎥 3D Virtual Tours
+![Virtual Tours UI](https://via.placeholder.com/1200x600?text=Virtual+Tours+UI)
+
+### 🏦 Loan Optimizer
+![Loan Optimizer UI](https://via.placeholder.com/1200x600?text=Loan+Optimizer+UI)
+
+### 🏛️ Government Schemes
+![Schemes Page UI](https://via.placeholder.com/1200x600?text=Schemes+Page+UI)
+
+### 🛠️ Home Services
+![Services Page UI](https://via.placeholder.com/1200x600?text=Services+Page+UI)
+
+### 📱 User Dashboard
+![Dashboard UI](https://via.placeholder.com/1200x600?text=Dashboard+UI)
 
 ---
 
@@ -172,7 +200,7 @@ Each bank includes:
 | React Query | Data fetching |
 | Formik + Yup | Form handling |
 | Recharts | Data visualization |
-| Google Maps API | Interactive maps |
+| Leaflet (Leafmap) | Interactive maps |
 | Three.js / React Three Fiber | 3D models |
 | Lottie React | Animations |
 | React Hot Toast | Notifications |
@@ -263,7 +291,7 @@ HomeTruth AI/
 
 - Node.js 18+
 - MongoDB Atlas account
-- Google Maps API Key (optional)
+- Leaflet Maps configuration
 - npm or yarn
 
 ### Clone the Repository
@@ -291,7 +319,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 **Frontend (.env)**
 ```env
 VITE_API_URL=http://localhost:5000/api
-VITE_GOOGLE_MAPS_API_KEY=your_google_maps_key
+VITE_MAP_PROVIDER=leaflet
 ```
 
 ### Install Dependencies

@@ -20,17 +20,16 @@ const SplashScreen = ({ onLoadingComplete }) => {
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       {/* Background Image with Blur and Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
-        style={{ 
+        style={{
           backgroundImage: `url(${splashBg})`,
           filter: 'blur(8px) brightness(0.4)'
         }}
       />
-      
+
       {/* Content Container */}
       <div className="relative z-10 flex flex-col items-center text-center px-4">
-        {/* Logo Icon - Hand holding Home concept */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -51,12 +50,12 @@ const SplashScreen = ({ onLoadingComplete }) => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-6xl md:text-7xl font-bold text-amber-primary mb-2 tracking-tight"
-          style={{ 
+          style={{
             fontFamily: 'var(--font-sans)',
             textShadow: '0 4px 20px rgba(0,0,0,0.3)'
           }}
         >
-          HomeTruth AI
+          Home<span className="text-white italic">Truth AI</span>
         </motion.h1>
 
         {/* Tagline */}

@@ -35,11 +35,10 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`fixed w-full z-[100] transition-all duration-500 ${
-      scrolled 
-        ? 'py-3 bg-dark-bg/60 backdrop-blur-2xl border-b border-white/5 shadow-premium' 
+    <nav className={`fixed w-full z-[100] transition-all duration-500 ${scrolled
+        ? 'py-3 bg-dark-bg/60 backdrop-blur-2xl border-b border-white/5 shadow-premium'
         : 'py-6 bg-transparent'
-    }`}>
+      }`}>
       <div className="max-w-[1600px] mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-12 h-12 bg-[#0F0905] rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-premium group-hover:scale-110 transition-transform duration-500">
@@ -55,12 +54,12 @@ const Navbar = () => {
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
-              <Link 
+              <Link
                 key={link.name}
-                to={link.path} 
+                to={link.path}
                 className={`relative px-5 py-2 rounded-full text-sm font-bold transition-all duration-300
-                  ${isActive 
-                    ? 'text-dark-bg bg-amber-primary shadow-amber-glow' 
+                  ${isActive
+                    ? 'text-dark-bg bg-amber-primary shadow-amber-glow'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
               >
@@ -89,11 +88,11 @@ const Navbar = () => {
                 </div>
                 <ChevronDown size={14} className="text-white/40 group-hover:text-amber-primary transition-colors" />
               </button>
-              
+
               <div className="absolute top-[calc(100%-0.5rem)] right-0 pt-4 w-48 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
                 <div className="glass-panel py-2 rounded-2xl border-white/10 shadow-premium">
-                  <button 
-                    onClick={() => dispatch(logout())} 
+                  <button
+                    onClick={() => dispatch(logout())}
                     className="w-full flex items-center px-4 py-3 text-sm text-red-400 hover:bg-red-400/10 transition-colors"
                   >
                     <LogOut size={16} className="mr-3" /> Sign Out
@@ -115,8 +114,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden flex items-center space-x-4">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 text-white bg-white/5 rounded-xl border border-white/10 transition-colors"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -127,7 +126,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -135,14 +134,13 @@ const Navbar = () => {
           >
             <div className="flex flex-col px-6 py-8 space-y-3">
               {navLinks.map((link) => (
-                <Link 
+                <Link
                   key={link.name}
-                  to={link.path} 
-                  className={`px-6 py-4 rounded-2xl text-lg font-bold transition-all ${
-                    location.pathname === link.path 
-                      ? 'bg-amber-primary text-dark-bg' 
+                  to={link.path}
+                  className={`px-6 py-4 rounded-2xl text-lg font-bold transition-all ${location.pathname === link.path
+                      ? 'bg-amber-primary text-dark-bg'
                       : 'text-white/60 hover:bg-white/5 hover:text-white'
-                  }`}
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
@@ -150,15 +148,15 @@ const Navbar = () => {
               ))}
               <div className="h-px w-full bg-white/5 my-4"></div>
               {isAuthenticated ? (
-                <button 
-                  onClick={() => { dispatch(logout()); setIsMenuOpen(false); }} 
+                <button
+                  onClick={() => { dispatch(logout()); setIsMenuOpen(false); }}
                   className="flex items-center px-6 py-4 rounded-2xl text-lg font-bold text-red-400 hover:bg-red-400/10 transition-colors"
                 >
                   <LogOut size={20} className="mr-4" /> Sign Out
                 </button>
               ) : (
-                <Link 
-                  to="/login" 
+                <Link
+                  to="/login"
                   className="btn-amber text-center py-4 text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >

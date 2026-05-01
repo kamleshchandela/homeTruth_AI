@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { 
   MapPin, ShieldAlert, Star, MessageCircle, Phone, 
   Box, ArrowLeft, Heart, Share2, Info, 
@@ -70,6 +71,10 @@ const HomeDetailPage = () => {
 
   return (
     <div className="bg-[#0F0905] min-h-screen pt-24 pb-20 px-6 lg:px-12 text-white/90 selection:bg-amber-primary/30">
+      <Helmet>
+        <title>{property.title} | HomeTruth AI</title>
+        <meta name="description" content={`Check out this ${property.propertyType} in ${property.city}. AI-powered valuation and risk analysis available.`} />
+      </Helmet>
       {/* Background Atmosphere */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-0 right-1/4 w-[60vw] h-[60vw] rounded-full bg-amber-primary/5 blur-[150px]"></div>
@@ -476,6 +481,22 @@ const HomeDetailPage = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      {/* Floating CTA for Mobile */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-[#0F0905]/80 backdrop-blur-xl border-t border-white/10 z-40 flex gap-3">
+        <button 
+          onClick={handleWhatsApp}
+          className="flex-1 py-4 rounded-2xl bg-green-500/20 text-green-500 border border-green-500/20 font-bold flex items-center justify-center gap-2"
+        >
+          <MessageCircle size={18} /> WhatsApp
+        </button>
+        <button 
+          onClick={() => window.open(`tel:${property.phone || '1234567890'}`)}
+          className="flex-1 py-4 rounded-2xl bg-amber-primary text-dark-bg font-bold flex items-center justify-center gap-2"
+        >
+          <Phone size={18} /> Call Now
+        </button>
+      </div>
+
       {/* 3D Tour Modal */}
       <ThreeViewerModal
         isOpen={isThreeViewOpen}

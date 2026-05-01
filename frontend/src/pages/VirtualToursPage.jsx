@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Play, Eye, MapPin, Box, ArrowRight, Zap, Sparkles, Search, Loader2 } from 'lucide-react';
 import ThreeViewerModal from '../components/ThreeViewerModal';
 import api from '../services/api';
@@ -34,6 +35,10 @@ const VirtualToursPage = () => {
 
   return (
     <div className="bg-[#0F0905] min-h-screen pt-32 pb-20 px-6 lg:px-12 selection:bg-amber-primary/30">
+      <Helmet>
+        <title>Virtual 3D Tours | HomeTruth AI</title>
+        <meta name="description" content="Experience immersive 3D virtual tours of premium properties using next-gen spatial technology." />
+      </Helmet>
       
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -44,7 +49,7 @@ const VirtualToursPage = () => {
       <div className="max-w-[1800px] mx-auto relative z-10">
         
         {/* Cinematic Header */}
-        <div className="max-w-4xl mb-16">
+        <div className="max-w-4xl mb-16 px-2">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +61,7 @@ const VirtualToursPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-6xl lg:text-8xl font-serif font-bold leading-tight mb-8"
+            className="text-4xl md:text-6xl lg:text-8xl font-serif font-bold leading-tight mb-8"
           >
             Immersive <span className="text-gradient italic">3D Tours.</span>
           </motion.h1>
@@ -64,19 +69,19 @@ const VirtualToursPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-xl lg:text-2xl font-light max-w-2xl leading-relaxed"
+            className="text-white/40 text-base md:text-xl lg:text-2xl font-light max-w-2xl leading-relaxed"
           >
             Step inside our most premium residences from anywhere in the world. Experience lifelike walkthroughs and interactive spatial models.
           </motion.p>
         </div>
 
         {/* Search Bar */}
-        <div className="mb-24 flex flex-col sm:flex-row gap-4 items-center max-w-4xl">
+        <div className="mb-24 flex flex-col sm:flex-row gap-4 items-center max-w-4xl px-2">
           <div className="relative flex-1 w-full group">
             <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-amber-primary transition-all duration-500" size={20} />
             <input
               type="text"
-              placeholder="Search locations or buildings..."
+              placeholder="Search locations..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-16 pr-6 py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/20 outline-none focus:border-amber-primary/50 focus:bg-white/10 transition-all text-lg text-white placeholder:text-white/50 shadow-premium"
@@ -90,13 +95,13 @@ const VirtualToursPage = () => {
             <Loader2 className="w-12 h-12 animate-spin text-amber-primary" />
           </div>
         ) : filteredTours.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-64 glass-panel rounded-[3rem] border-white/5">
+          <div className="flex flex-col items-center justify-center h-64 glass-panel rounded-[3rem] border-white/5 mx-2">
             <Box className="w-16 h-16 text-white/20 mb-4" />
             <h3 className="text-2xl font-bold text-white/60">No properties found</h3>
             <p className="text-lg text-white/40 mt-2">Try adjusting your search criteria</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 px-2 md:px-0">
             {filteredTours.map((tour, index) => (
               <motion.div
                 key={tour._id}
@@ -104,11 +109,11 @@ const VirtualToursPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="glass-card group overflow-hidden rounded-[3rem] border-white/5 cursor-pointer flex flex-col shadow-premium min-h-[550px]"
+                className="glass-card group overflow-hidden rounded-[2.5rem] md:rounded-[3rem] border-white/5 cursor-pointer flex flex-col shadow-premium min-h-[500px]"
                 onClick={() => setActiveTour(tour._id)}
               >
-                {/* Image Area (Panoramic 21:9) */}
-                <div className="relative aspect-[21/9] overflow-hidden shrink-0">
+                {/* Image Area (Panoramic 21:9 on desktop, 16:9 on mobile) */}
+                <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden shrink-0">
                   <img 
                     src={tour.image || (tour.images && tour.images[0]) || 'https://via.placeholder.com/1200'} 
                     alt={tour.title} 
@@ -119,64 +124,64 @@ const VirtualToursPage = () => {
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all flex items-center justify-center">
                     <motion.div 
                       whileHover={{ scale: 1.1 }}
-                      className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-3xl flex items-center justify-center border border-white/30 group-hover:border-amber-primary/50 group-hover:bg-amber-primary/10 transition-all shadow-premium"
+                      className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-3xl flex items-center justify-center border border-white/30 group-hover:border-amber-primary/50 group-hover:bg-amber-primary/10 transition-all shadow-premium"
                     >
-                      <Play className="text-white group-hover:text-amber-primary ml-1 w-10 h-10 transition-colors" />
+                      <Play className="text-white group-hover:text-amber-primary ml-1 w-8 h-8 md:w-10 md:h-10 transition-colors" />
                     </motion.div>
                   </div>
 
                   {/* Duration Badge */}
-                  <div className="absolute bottom-6 right-6 px-4 py-2 rounded-2xl bg-dark-bg/60 backdrop-blur-xl border border-white/10 text-[10px] font-black text-white font-mono tracking-widest flex items-center gap-2">
+                  <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 px-3 py-1.5 md:px-4 md:py-2 rounded-xl md:rounded-2xl bg-dark-bg/60 backdrop-blur-xl border border-white/10 text-[8px] md:text-[10px] font-black text-white font-mono tracking-widest flex items-center gap-2">
                     <Zap size={12} className="text-amber-primary" /> {Math.floor(Math.random() * 5) + 3}:00 MIN TOUR
                   </div>
                   
                   {/* Type Badge */}
-                  <div className="absolute top-6 left-6 px-4 py-2 rounded-2xl glass-panel border-white/10 text-[9px] font-black text-amber-primary uppercase tracking-[0.3em]">
+                  <div className="absolute top-4 left-4 md:top-6 md:left-6 px-3 py-1.5 md:px-4 md:py-2 rounded-xl md:rounded-2xl glass-panel border-white/10 text-[8px] md:text-[9px] font-black text-amber-primary uppercase tracking-[0.3em]">
                     {tour.propertyType || tour.type || 'Property'}
                   </div>
                 </div>
 
                 {/* Content Area */}
-                <div className="p-10 flex flex-col flex-1 justify-between">
+                <div className="p-6 md:p-10 flex flex-col flex-1 justify-between">
                   <div>
-                    <div className="flex justify-between items-start mb-6">
-                      <h3 className="text-4xl lg:text-5xl font-serif font-bold group-hover:text-amber-primary transition-colors leading-tight line-clamp-2">{tour.title}</h3>
-                      <div className="flex flex-col items-end shrink-0 pl-4">
+                    <div className="flex flex-col md:flex-row justify-between items-start mb-6 gap-4">
+                      <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold group-hover:text-amber-primary transition-colors leading-tight line-clamp-2">{tour.title}</h3>
+                      <div className="flex items-center md:items-end gap-2 md:flex-col shrink-0">
                         <div className="flex items-center gap-2 text-white/20">
-                          <Eye size={16} />
-                          <span className="text-sm font-mono font-bold text-white/40">{Math.floor(Math.random() * 2000) + 500}</span>
+                          <Eye size={14} />
+                          <span className="text-xs md:text-sm font-mono font-bold text-white/40">{Math.floor(Math.random() * 2000) + 500}</span>
                         </div>
-                        <p className="text-[9px] text-white/10 font-black uppercase tracking-widest mt-1">Sessions</p>
+                        <p className="text-[8px] md:text-[9px] text-white/10 font-black uppercase tracking-widest">Sessions</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/5 border border-white/5 w-fit mb-10">
-                      <MapPin size={14} className="text-amber-primary" /> 
-                      <span className="text-[11px] font-medium text-white/50">{tour.address}</span>
+                    <div className="flex items-center gap-3 px-3 py-1.5 md:px-4 md:py-2 rounded-lg md:rounded-xl bg-white/5 border border-white/5 w-fit mb-6 md:mb-10">
+                      <MapPin size={12} className="text-amber-primary" /> 
+                      <span className="text-[10px] md:text-[11px] font-medium text-white/50">{tour.address}</span>
                     </div>
                   </div>
 
                   {/* Bottom Bar */}
-                  <div className="flex items-center justify-between pt-8 border-t border-white/5 mt-auto">
-                     <div className="flex items-center gap-6">
-                        <div className="w-12 h-12 rounded-2xl bg-amber-primary/10 border border-amber-primary/20 flex items-center justify-center text-amber-primary">
-                          <Box size={24} />
+                  <div className="flex flex-col sm:flex-row items-center justify-between pt-6 md:pt-8 border-t border-white/5 mt-auto gap-6">
+                     <div className="flex items-center gap-4 md:gap-6 w-full sm:w-auto">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-amber-primary/10 border border-amber-primary/20 flex items-center justify-center text-amber-primary shrink-0">
+                          <Box size={20} md:size={24} />
                         </div>
                         <div>
-                          <p className="text-[9px] text-white/20 font-black uppercase tracking-widest mb-1">Spatial Tech</p>
-                          <p className="text-white font-bold">Unreal Engine 5.4</p>
+                          <p className="text-[8px] md:text-[9px] text-white/20 font-black uppercase tracking-widest mb-1">Spatial Tech</p>
+                          <p className="text-xs md:text-sm text-white font-bold">Unreal Engine 5.4</p>
                         </div>
                      </div>
 
                      <button 
-                      className="btn-amber !py-5 !px-12 text-sm font-bold flex items-center justify-center gap-4 shadow-amber-glow-strong group/btn"
+                      className="w-full sm:w-auto btn-amber !py-4 md:!py-5 !px-8 md:!px-12 text-xs md:text-sm font-bold flex items-center justify-center gap-3 md:gap-4 shadow-amber-glow-strong group/btn"
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveTour(tour._id);
                       }}
                      >
-                      Start Immersive Experience
-                      <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
+                      Start Experience
+                      <ArrowRight size={18} md:size={20} className="group-hover/btn:translate-x-2 transition-transform" />
                      </button>
                   </div>
                 </div>
