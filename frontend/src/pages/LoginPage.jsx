@@ -66,15 +66,14 @@ const LoginPage = () => {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-8 flex items-center gap-4"
+            className="mb-8 flex items-center gap-3"
           >
-            <div className="w-12 h-12 bg-gradient-to-tr from-amber-primary to-amber-secondary rounded-xl flex items-center justify-center shadow-amber-glow shrink-0">
-              <span className="text-dark-bg font-serif font-black text-2xl">H</span>
+            <div className="w-16 h-16 bg-[#0F0905] rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-premium">
+              <img src="/favicon.png" alt="Logo" className="w-full h-full object-cover scale-110" />
             </div>
-            <div>
-              <h1 className="text-xl font-serif font-bold text-white mb-0.5">HomeTruth <span className="text-gradient">AI</span></h1>
-              <p className="text-white/30 text-[8px] font-black uppercase tracking-[0.2em]">Personalized Concierge</p>
-            </div>
+            <span className="text-2xl font-serif font-bold text-white tracking-tight">
+              Home<span className="text-gradient">Truth</span>
+            </span>
           </motion.div>
 
           {/* Login Card */}

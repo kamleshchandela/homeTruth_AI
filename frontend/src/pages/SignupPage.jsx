@@ -103,6 +103,14 @@ const SignupPage = () => {
         <div className="max-w-md mx-auto relative z-10">
           {/* Header */}
           <div className="mb-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-16 h-16 bg-[#0F0905] rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-premium">
+                <img src="/favicon.png" alt="Logo" className="w-full h-full object-cover scale-110" />
+              </div>
+              <span className="text-2xl font-serif font-bold text-white tracking-tight">
+                Home<span className="text-gradient">Truth</span>
+              </span>
+            </div>
             <h1 className="text-2xl font-serif font-bold text-white mb-2 leading-tight">Create Account</h1>
             <p className="text-white/40 text-sm font-medium">Join our ecosystem of residents and partners.</p>
           </div>

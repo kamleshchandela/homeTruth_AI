@@ -97,27 +97,27 @@ const LoanOptimizerPage = () => {
 
       <div className="max-w-[1400px] mx-auto relative z-10">
         
-        <header className="mb-16 text-center max-w-3xl mx-auto">
+        <header className="mb-10 md:mb-16 text-center max-w-3xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel border-amber-primary/20 bg-amber-primary/5 text-amber-primary text-[10px] font-black uppercase tracking-[0.3em] mb-8"
+            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel border-amber-primary/20 bg-amber-primary/5 text-amber-primary text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8"
           >
             <Percent size={12} /> Loan Marketplace
           </motion.div>
-          <h1 className="text-6xl font-serif font-bold mb-6">Compare & Apply <span className="text-gradient italic">Home Loans.</span></h1>
-          <p className="text-white/40 text-xl font-light">Find the best rates from top Indian banks and optimize your savings with government schemes.</p>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 leading-tight">Compare & Apply <span className="text-gradient italic">Home Loans.</span></h1>
+          <p className="text-white/40 text-base md:text-xl font-light px-2">Find the best rates from top Indian banks and optimize your savings with government schemes.</p>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-start">
           
           {/* Left: Calculator & Optimization */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="glass-panel p-8 rounded-[2.5rem] border-white/5">
-              <h3 className="text-xl font-bold mb-8 flex items-center gap-3">
-                <Calculator className="text-amber-primary" size={20} /> Parameters
+          <div className="lg:col-span-4 space-y-6 md:space-y-8 order-2 lg:order-1">
+            <div className="glass-panel p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] border-white/5">
+              <h3 className="text-lg md:text-xl font-bold mb-6 md:mb-8 flex items-center gap-3">
+                <Calculator className="text-amber-primary" size={18} md:size={20} /> Parameters
               </h3>
               
-              <div className="space-y-10">
+              <div className="space-y-8 md:space-y-10">
                 <div>
                   <div className="flex justify-between mb-4">
                     <label className="text-[10px] text-white/30 uppercase font-black tracking-widest">Loan Amount</label>
@@ -154,16 +154,16 @@ const LoanOptimizerPage = () => {
             {/* Killer Feature Card */}
             <div 
               onClick={() => navigate('/schemes')}
-              className="glass-panel p-8 rounded-[2.5rem] border-amber-primary/20 bg-amber-primary/5 relative overflow-hidden group cursor-pointer hover:bg-amber-primary/10 transition-all duration-500"
+              className="glass-panel p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] border-amber-primary/20 bg-amber-primary/5 relative overflow-hidden group cursor-pointer hover:bg-amber-primary/10 transition-all duration-500"
             >
-              <div className="absolute -top-10 -right-10 opacity-5 group-hover:rotate-12 transition-transform duration-700">
-                <TrendingUp size={160} />
+              <div className="absolute -top-10 -right-10 opacity-5 group-hover:rotate-12 transition-transform duration-700 hidden xs:block">
+                <TrendingUp size={120} md:size={160} />
               </div>
-              <h4 className="font-bold text-amber-primary mb-4 flex items-center gap-2">
+              <h4 className="font-bold text-amber-primary mb-4 flex items-center gap-2 text-sm md:text-base">
                 <TrendingUp size={18} /> Killer Saving Tip
               </h4>
-              <p className="text-white/60 text-sm leading-relaxed mb-6 font-medium">
-                You can save <span className="text-white font-bold tracking-tight text-base">₹8.4L extra</span> by optimizing your loan + using government schemes like PMAY.
+              <p className="text-white/60 text-xs md:text-sm leading-relaxed mb-6 font-medium">
+                You can save <span className="text-white font-bold tracking-tight text-sm md:text-base">₹8.4L extra</span> by optimizing your loan + using government schemes.
               </p>
               <div className="text-[10px] font-black uppercase tracking-widest text-white group-hover:text-amber-primary transition-colors flex items-center gap-2">
                 Discover Schemes <ArrowRight size={14} />
@@ -172,34 +172,28 @@ const LoanOptimizerPage = () => {
           </div>
 
           {/* Center/Right: Results & Marketplace */}
-          <div className="lg:col-span-8 space-y-10">
+          <div className="lg:col-span-8 space-y-8 md:space-y-10 order-1 lg:order-2">
             
             {/* Visual Results */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="glass-panel p-10 rounded-[2.5rem] border-white/5 flex flex-col items-center justify-center text-center">
-                <p className="text-[10px] text-white/30 uppercase font-black tracking-widest mb-4">Monthly Installment</p>
-                <h2 className="text-6xl font-mono font-bold text-white mb-6 tracking-tighter">₹{emi.toLocaleString('en-IN')}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="glass-panel p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-white/5 flex flex-col items-center justify-center text-center">
+                <p className="text-[10px] text-white/30 uppercase font-black tracking-widest mb-4">Monthly EMI</p>
+                <h2 className="text-4xl md:text-6xl font-mono font-bold text-white mb-6 tracking-tighter">₹{emi.toLocaleString('en-IN')}</h2>
                 
                 <div className="flex flex-col gap-3 w-full">
-                  <div className="flex justify-between items-center px-6 py-3 bg-white/5 rounded-xl border border-white/5">
+                  <div className="flex justify-between items-center px-4 md:px-6 py-3 bg-white/5 rounded-xl border border-white/5">
                     <span className="text-[10px] text-white/40 font-bold uppercase">Total Interest</span>
-                    <span className="text-sm font-bold font-mono">₹{totalInterest.toLocaleString('en-IN')}</span>
+                    <span className="text-xs md:text-sm font-bold font-mono">₹{totalInterest.toLocaleString('en-IN')}</span>
                   </div>
-                  <div className="flex justify-between items-center px-6 py-3 bg-success/5 rounded-xl border border-success/20">
-                    <span className="text-[10px] text-success font-bold uppercase">PMAY Benefit EMI</span>
-                    <span className="text-sm font-bold font-mono text-success">₹{pmayEmi.toLocaleString('en-IN')}</span>
+                  <div className="flex justify-between items-center px-4 md:px-6 py-3 bg-success/5 rounded-xl border border-success/20">
+                    <span className="text-[10px] text-success font-bold uppercase tracking-tight">PMAY Benefit EMI</span>
+                    <span className="text-xs md:text-sm font-bold font-mono text-success">₹{pmayEmi.toLocaleString('en-IN')}</span>
                   </div>
-                  {eligibilityScore && (
-                    <div className="flex justify-between items-center px-6 py-3 bg-blue-500/5 rounded-xl border border-blue-500/20 mt-2">
-                      <span className="text-[10px] text-blue-400 font-bold uppercase">Approval Chance</span>
-                      <span className="text-sm font-bold font-mono text-blue-400">{eligibilityScore}% (High)</span>
-                    </div>
-                  )}
                 </div>
               </div>
 
-              <div className="flex flex-col gap-8">
-                <div className="glass-panel p-6 rounded-[2.5rem] border-white/5 h-full min-h-[220px]">
+              <div className="flex flex-col gap-6 md:gap-8">
+                <div className="glass-panel p-4 md:p-6 rounded-[2rem] border-white/5 h-48 md:h-full min-h-[180px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
@@ -222,30 +216,31 @@ const LoanOptimizerPage = () => {
                   </ResponsiveContainer>
                 </div>
                 
-                <div className="glass-panel p-6 rounded-[2rem] border-white/5 bg-white/[0.01]">
-                   <p className="text-[10px] text-white/20 uppercase font-black tracking-widest mb-3">Better Option Suggestion</p>
-                   <p className="text-sm text-white/60 leading-relaxed italic">
+                <div className="glass-panel p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] border-white/5 bg-white/[0.01]">
+                   <p className="text-[10px] text-white/20 uppercase font-black tracking-widest mb-2 md:mb-3">Optimization Suggestion</p>
+                   <p className="text-xs md:text-sm text-white/60 leading-relaxed italic">
                      "Increase tenure to <span className="text-white font-bold">25 years</span> to reduce EMI to <span className="text-amber-primary font-bold">₹{calculateEMI(loanAmount, interestRate, 25).toLocaleString('en-IN')}</span>"
                    </p>
                 </div>
               </div>
             </div>
 
-            {/* Bank Comparison Table */}
-            <div className="glass-panel p-10 rounded-[3rem] border-white/5">
-              <div className="flex justify-between items-center mb-10">
-                <h3 className="text-2xl font-serif font-bold">Best Bank Deals</h3>
-                <span className="text-[10px] text-white/30 font-bold italic">Rates are indicative and based on market trends</span>
+            {/* Bank Comparison Marketplace */}
+            <div className="glass-panel p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border-white/5">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 md:mb-10">
+                <h3 className="text-xl md:text-2xl font-serif font-bold">Best Bank Deals</h3>
+                <span className="text-[10px] text-white/30 font-bold italic">Indicative Market Rates</span>
               </div>
               
-              <div className="overflow-x-auto">
+              {/* Desktop View: Table */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="text-left border-b border-white/10">
-                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest">Bank</th>
-                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest">Interest Rate</th>
-                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest">Monthly EMI</th>
-                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest text-right">Action</th>
+                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest px-2">Bank</th>
+                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest px-2">Interest Rate</th>
+                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest px-2">Monthly EMI</th>
+                      <th className="pb-6 text-[10px] text-white/20 uppercase font-black tracking-widest px-2 text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -253,29 +248,27 @@ const LoanOptimizerPage = () => {
                       const bankEmi = calculateEMI(loanAmount, bank.rate, tenure);
                       return (
                         <tr key={i} className="group border-b border-white/5 last:border-0">
-                          <td className="py-8">
+                          <td className="py-6 md:py-8 px-2">
                             <div className="flex flex-col">
-                              <span className="font-bold text-white text-lg group-hover:text-amber-primary transition-colors">{bank.name}</span>
+                              <span className="font-bold text-white text-base md:text-lg group-hover:text-amber-primary transition-colors">{bank.name}</span>
                               <div className="flex gap-2 mt-1">
-                                <span className="text-[8px] px-2 py-0.5 rounded bg-success/10 text-success font-bold uppercase tracking-widest border border-success/20">{bank.status}</span>
-                                <button onClick={() => setShowGuide(bank.name)} className="text-[8px] text-white/30 hover:text-white uppercase font-bold tracking-widest underline decoration-white/10">Bank Guide</button>
+                                <span className="text-[8px] px-1.5 py-0.5 rounded bg-success/10 text-success font-bold uppercase tracking-widest border border-success/20">{bank.status}</span>
                               </div>
                             </div>
                           </td>
-                          <td className="py-8">
-                            <div className="font-mono font-bold text-xl text-amber-primary">{bank.rate}%</div>
-                            <span className="text-[10px] text-white/20 font-bold">Processing: {bank.fee}</span>
+                          <td className="py-6 md:py-8 px-2">
+                            <div className="font-mono font-bold text-lg md:text-xl text-amber-primary">{bank.rate}%</div>
+                            <span className="text-[8px] md:text-[10px] text-white/20 font-bold">Fee: {bank.fee}</span>
                           </td>
-                          <td className="py-8">
-                            <div className="font-mono font-bold text-lg text-white">₹{bankEmi.toLocaleString('en-IN')}</div>
-                            <span className="text-[10px] text-white/20 font-bold tracking-tight">Total Int: ₹{((bankEmi * tenure * 12) - loanAmount).toLocaleString('en-IN')}</span>
+                          <td className="py-6 md:py-8 px-2">
+                            <div className="font-mono font-bold text-base md:text-lg text-white">₹{bankEmi.toLocaleString('en-IN')}</div>
                           </td>
-                          <td className="py-8 text-right">
+                          <td className="py-6 md:py-8 px-2 text-right">
                             <button 
                               onClick={() => window.open(bank.url, '_blank')}
-                              className="btn-amber px-8 py-3 text-xs font-bold shadow-amber-glow"
+                              className="btn-amber px-4 md:px-8 py-2 md:py-3 text-[10px] md:text-xs font-bold shadow-amber-glow"
                             >
-                              Apply Now
+                              Apply
                             </button>
                           </td>
                         </tr>
@@ -283,6 +276,41 @@ const LoanOptimizerPage = () => {
                     })}
                   </tbody>
                 </table>
+              </div>
+
+              {/* Mobile View: Cards */}
+              <div className="md:hidden space-y-6">
+                {mockBanks.map((bank, i) => {
+                  const bankEmi = calculateEMI(loanAmount, bank.rate, tenure);
+                  return (
+                    <div key={i} className="glass-panel p-6 rounded-[2rem] border-white/5 bg-white/[0.02] flex flex-col gap-6">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h4 className="text-xl font-bold text-white mb-1">{bank.name}</h4>
+                          <span className="text-[8px] px-2 py-0.5 rounded bg-success/10 text-success font-bold uppercase tracking-widest border border-success/20">
+                            {bank.status}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-2xl font-mono font-bold text-amber-primary">{bank.rate}%</div>
+                          <div className="text-[10px] text-white/20 font-bold uppercase">Fee: {bank.fee}</div>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-between items-center py-4 border-y border-white/5">
+                        <span className="text-[10px] text-white/40 uppercase font-black tracking-widest">Monthly EMI</span>
+                        <span className="text-xl font-mono font-bold text-white">₹{bankEmi.toLocaleString('en-IN')}</span>
+                      </div>
+
+                      <button 
+                        onClick={() => window.open(bank.url, '_blank')}
+                        className="w-full btn-amber py-4 text-xs font-bold shadow-amber-glow"
+                      >
+                        Apply for Loan
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

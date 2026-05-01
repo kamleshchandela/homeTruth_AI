@@ -7,8 +7,13 @@ const Footer = () => {
     <footer className="glass-card py-12 px-4 mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2">
-          <Link to="/" className="inline-block">
-            <img src="/logo-full.png" alt="HomeTruth AI" className="h-10 w-auto" />
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 bg-[#0F0905] rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-premium group-hover:scale-110 transition-transform duration-500">
+              <img src="/favicon.png" alt="Logo" className="w-full h-full object-cover scale-110" />
+            </div>
+            <span className="text-2xl font-serif font-bold text-white tracking-tight">
+              Home<span className="text-gradient">Truth</span>
+            </span>
           </Link>
           <p className="mt-4 text-gray-400 max-w-sm">
             AI-powered home intelligence revealing hidden costs, risks, and government benefits. Find the truth before you move in.

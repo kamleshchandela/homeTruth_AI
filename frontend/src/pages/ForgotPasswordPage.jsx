@@ -63,7 +63,14 @@ Please use this password to log in and then change it in your settings.`,
          <button onClick={() => navigate(-1)} className="absolute left-10 p-2 text-white/40 hover:text-white transition-colors">
             <ArrowLeft size={24} />
          </button>
-         <h1 className="text-xl font-bold tracking-tight text-white/90">Account Recovery</h1>
+         <div className="flex items-center gap-3">
+           <div className="w-14 h-14 bg-[#0F0905] rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-premium">
+             <img src="/favicon.png" alt="Logo" className="w-full h-full object-cover scale-110" />
+           </div>
+           <span className="text-xl font-serif font-bold text-white tracking-tight">
+             Home<span className="text-gradient">Truth</span>
+           </span>
+         </div>
       </div>
 
       <div className="w-full max-w-md relative z-10">
