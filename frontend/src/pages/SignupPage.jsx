@@ -286,6 +286,18 @@ const SignupPage = () => {
               </div>
 
               <div className="relative group">
+                <MapPin size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-amber-primary transition-colors" />
+                <input 
+                  type="text" 
+                  placeholder="Your Location (City/Area)"
+                  className="w-full bg-white/[0.03] border border-white/5 rounded-xl py-4 pl-12 pr-5 text-sm text-white focus:outline-none focus:border-amber-primary/40 transition-all font-medium"
+                  value={formData.location}
+                  onChange={(e) => setFormData({...formData, location: e.target.value})}
+                  required
+                />
+              </div>
+
+              <div className="relative group">
                 <Lock size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-amber-primary transition-colors" />
                 <input 
                   type={showPassword ? 'text' : 'password'} 

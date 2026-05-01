@@ -61,9 +61,9 @@ const UserDashboard = () => {
     <div className="max-w-[1600px] mx-auto px-6 py-10 selection:bg-amber-primary/30">
       <div className="flex flex-col lg:flex-row gap-10">
         
-        {/* Sidebar Nav */}
+        {/* Navigation - Sidebar (Desktop) / Horizontal Scroll (Mobile) */}
         <aside className="w-full lg:w-72 space-y-3">
-          <div className="glass-panel p-6 rounded-3xl border-white/5 mb-6 flex flex-col items-center text-center">
+          <div className="glass-panel p-6 rounded-3xl border-white/5 mb-6 hidden lg:flex flex-col items-center text-center">
             <div className="w-24 h-24 rounded-full border-2 border-amber-primary/40 overflow-hidden mb-4 shadow-amber-glow relative group">
                {user?.avatar ? (
                 <img src={user.avatar} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="profile" />
@@ -79,20 +79,22 @@ const UserDashboard = () => {
             </span>
           </div>
 
-          <div className="glass-panel p-4 rounded-3xl border-white/5">
-            {sidebarLinks.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => setActiveTab(item.label)}
-                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-300 font-medium text-sm
-                  ${activeTab === item.label 
-                    ? 'bg-amber-primary text-dark-bg font-bold shadow-amber-glow' 
-                    : 'hover:bg-white/5 text-white/50 hover:text-white'
-                  }`}
-              >
-                {item.icon} {item.label}
-              </button>
-            ))}
+          <div className="glass-panel p-2 lg:p-4 rounded-[2rem] lg:rounded-3xl border-white/5 overflow-x-auto lg:overflow-x-visible custom-scrollbar">
+            <div className="flex lg:flex-col gap-2 min-w-max lg:min-w-0">
+              {sidebarLinks.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => setActiveTab(item.label)}
+                  className={`flex items-center gap-4 px-5 py-3 lg:py-4 rounded-xl lg:rounded-2xl transition-all duration-300 font-medium text-xs lg:text-sm whitespace-nowrap
+                    ${activeTab === item.label 
+                      ? 'bg-amber-primary text-dark-bg font-bold shadow-amber-glow' 
+                      : 'hover:bg-white/5 text-white/50 hover:text-white'
+                    }`}
+                >
+                  {item.icon} {item.label}
+                </button>
+              ))}
+            </div>
           </div>
         </aside>
 

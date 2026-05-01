@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Shield, Map, Box, Settings, ArrowRight, Play, CheckCircle2, Search, Star, Zap, Users, Sparkles, Eye, ShieldCheck } from 'lucide-react';
 
 const LandingPage = () => {
@@ -8,7 +9,7 @@ const LandingPage = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
   const navigate = useNavigate();
   const { scrollY } = useScroll();
-  
+
   // Smooth Parallax
   const springConfig = { damping: 30, stiffness: 100 };
   const yParallax = useSpring(useTransform(scrollY, [0, 1000], [0, 200]), springConfig);
@@ -63,6 +64,10 @@ const LandingPage = () => {
 
   return (
     <div className="bg-[#0F0905] min-h-screen text-white selection:bg-amber-primary/30 overflow-x-hidden font-outfit">
+      <Helmet>
+        <title>HomeTruth AI | Reveal the Hidden Truth of Real Estate</title>
+        <meta name="description" content="Revealing the hidden truth of every property. AI-powered risk analysis, market indexing, and immersive 3D virtual tours." />
+      </Helmet>
       
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -117,13 +122,12 @@ const LandingPage = () => {
               ))}
             </div>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-              <Link to="/explore" className="btn-amber group !py-3.5 !px-8 text-base shadow-amber-glow w-full sm:w-auto">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+              <Link to="/explore" className="btn-amber group !py-4 !px-8 text-base shadow-amber-glow w-full sm:w-auto flex items-center justify-center gap-3">
                 Start Exploring
                 <ArrowRight className="group-hover:translate-x-2 transition-transform" size={20} />
               </Link>
-              <Link to="/virtual-tours" className="btn-glass !py-3.5 !px-8 text-base flex items-center justify-center gap-3 w-full sm:w-auto backdrop-blur-3xl">
+              <Link to="/virtual-tours" className="btn-glass !py-4 !px-8 text-base flex items-center justify-center gap-3 w-full sm:w-auto backdrop-blur-3xl">
                 <Play size={16} fill="currentColor" />
                 Live 3D Tours
               </Link>
@@ -279,52 +283,52 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <motion.div 
               whileHover={{ y: -10 }}
-              className="md:col-span-8 h-[500px] glass-card rounded-[3rem] overflow-hidden relative group cursor-pointer border-white/5 shadow-premium"
+              className="md:col-span-8 min-h-[400px] md:h-[500px] glass-card rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative group cursor-pointer border-white/5 shadow-premium"
               onClick={() => navigate('/map')}
             >
               <img src="/assets/images/map_ui.png" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-[3s]" alt="Map UI" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F0905] via-transparent to-transparent"></div>
-              <div className="absolute bottom-12 left-12 right-12">
-                <span className="inline-block px-5 py-2 bg-amber-primary/10 border border-amber-primary/30 rounded-full text-amber-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6 backdrop-blur-xl">Neighborhood Intelligence</span>
-                <h3 className="text-4xl xl:text-5xl font-bold mb-6 text-white">Interactive Spatial Analysis</h3>
-                <p className="text-white/40 max-w-xl text-lg leading-relaxed">Visualize water logging, noise pollution, and crime rates with our proprietary map layers.</p>
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 right-8 md:right-12">
+                <span className="inline-block px-5 py-2 bg-amber-primary/10 border border-amber-primary/30 rounded-full text-amber-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4 md:mb-6 backdrop-blur-xl">Neighborhood Intelligence</span>
+                <h3 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-white">Interactive Spatial Analysis</h3>
+                <p className="text-white/40 max-w-xl text-base md:text-lg leading-relaxed">Visualize water logging, noise pollution, and crime rates with our proprietary map layers.</p>
               </div>
             </motion.div>
 
             <motion.div 
               whileHover={{ y: -10 }}
-              className="md:col-span-4 h-[500px] glass-card rounded-[3rem] overflow-hidden relative group cursor-pointer border-white/5 shadow-premium"
+              className="md:col-span-4 min-h-[400px] md:h-[500px] glass-card rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative group cursor-pointer border-white/5 shadow-premium"
               onClick={() => navigate('/virtual-tours')}
             >
               <img src="/assets/images/apartment.png" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-[3s]" alt="3D Tour" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F0905] via-transparent to-transparent"></div>
-              <div className="absolute bottom-12 left-12">
-                <h3 className="text-3xl font-bold mb-4">Immersive 3D Tours</h3>
-                <p className="text-white/40 text-lg leading-relaxed">Explore every corner before you visit.</p>
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Immersive 3D Tours</h3>
+                <p className="text-white/40 text-base md:text-lg leading-relaxed">Explore every corner before you visit.</p>
               </div>
             </motion.div>
 
             <motion.div 
               whileHover={{ y: -10 }}
-              className="md:col-span-5 h-[380px] glass-card rounded-[3rem] overflow-hidden relative group cursor-pointer border-white/5 shadow-premium"
+              className="md:col-span-5 min-h-[300px] md:h-[380px] glass-card rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative group cursor-pointer border-white/5 shadow-premium"
               onClick={() => navigate('/services')}
             >
               <img src="/assets/images/service.png" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-[3s]" alt="Services" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F0905] via-transparent to-transparent"></div>
-              <div className="absolute bottom-12 left-12">
-                <h3 className="text-3xl font-bold mb-4">Verified Services</h3>
-                <p className="text-white/40 text-lg leading-relaxed">Maintenance & Legal experts.</p>
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Verified Services</h3>
+                <p className="text-white/40 text-base md:text-lg leading-relaxed">Maintenance & Legal experts.</p>
               </div>
             </motion.div>
 
-            <div className="md:col-span-7 p-12 glass-panel rounded-[3rem] flex flex-col justify-center items-center text-center relative overflow-hidden border-white/5 h-[380px]">
+            <div className="md:col-span-7 p-8 md:p-12 glass-panel rounded-[2.5rem] md:rounded-[3rem] flex flex-col justify-center items-center text-center relative overflow-hidden border-white/5 min-h-[380px]">
               <div className="absolute inset-0 bg-amber-primary/[0.02] pointer-events-none"></div>
-              <div className="w-20 h-20 rounded-[2rem] bg-amber-primary/10 border border-amber-primary/30 flex items-center justify-center mb-8 shadow-amber-glow">
-                <CheckCircle2 size={40} className="text-amber-primary" />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-[2rem] bg-amber-primary/10 border border-amber-primary/30 flex items-center justify-center mb-6 md:mb-8 shadow-amber-glow">
+                <CheckCircle2 size={32} md:size={40} className="text-amber-primary" />
               </div>
-              <h3 className="text-4xl font-bold mb-4">Zero Information Gap</h3>
-              <p className="text-white/30 max-w-xl mb-8 text-lg leading-relaxed font-light">Eliminating bad property decisions using data science and community truth.</p>
-              <Link to="/explore" className="btn-amber !py-5 !px-12 text-lg shadow-amber-glow">Join the Revolution</Link>
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">Zero Information Gap</h3>
+              <p className="text-white/30 max-w-xl mb-6 md:mb-8 text-base md:text-lg leading-relaxed font-light">Eliminating bad property decisions using data science and community truth.</p>
+              <Link to="/explore" className="btn-amber !py-4 md:!py-5 !px-10 md:!px-12 text-base md:text-lg shadow-amber-glow">Join the Revolution</Link>
             </div>
           </div>
         </div>
