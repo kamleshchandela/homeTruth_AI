@@ -7,7 +7,9 @@ const Footer = () => {
     <footer className="glass-card py-12 px-4 mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2">
-          <Link to="/" className="text-2xl font-serif font-bold text-amber-primary">HomeTruth AI</Link>
+          <Link to="/" className="inline-block">
+            <img src="/logo-full.png" alt="HomeTruth AI" className="h-10 w-auto" />
+          </Link>
           <p className="mt-4 text-gray-400 max-w-sm">
             AI-powered home intelligence revealing hidden costs, risks, and government benefits. Find the truth before you move in.
           </p>

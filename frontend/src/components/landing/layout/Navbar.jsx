@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Container from '../common/Container';
 
@@ -5,7 +6,9 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50 transition-all duration-300 bg-black/50 backdrop-blur-md border-b border-white/5">
       <Container className="flex items-center justify-between h-20">
-        <div className="text-2xl font-serif font-bold text-white">🏠 HomeTruth AI</div>
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/logo-full.png" alt="HomeTruth AI" className="h-10 w-auto" />
+        </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
           {['Explore', 'Map', '3D Tours', 'Services', 'Schemes'].map(item => (
             <a href="#" key={item} className="hover:text-amber-500 transition-colors">{item}</a>
