@@ -41,8 +41,13 @@ const Navbar = () => {
         : 'py-6 bg-transparent'
     }`}>
       <div className="max-w-[1600px] mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2 group">
-          <img src="/logo-full.png" alt="HomeTruth AI" className="h-10 w-auto" />
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-12 h-12 bg-[#0F0905] rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-premium group-hover:scale-110 transition-transform duration-500">
+            <img src="/favicon.png" alt="Logo" className="w-full h-full object-cover scale-110" />
+          </div>
+          <span className="text-2xl font-serif font-bold text-white tracking-tight">
+            Home<span className="text-gradient">Truth</span>
+          </span>
         </Link>
 
         {/* Desktop Menu */}

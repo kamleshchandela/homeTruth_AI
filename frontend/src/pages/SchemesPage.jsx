@@ -278,11 +278,11 @@ const SchemesPage = () => {
       <div className="max-w-[1800px] mx-auto relative z-10">
         
         {/* Cinematic Header */}
-        <div className="max-w-4xl mb-20">
+        <div className="max-w-4xl mb-12 md:mb-20 px-4 md:px-0">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel border-amber-primary/20 bg-amber-primary/5 text-amber-primary text-[10px] font-black uppercase tracking-[0.3em] mb-8"
+            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full glass-panel border-amber-primary/20 bg-amber-primary/5 text-amber-primary text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8"
           >
             <Coins size={12} /> Financial Empowerment
           </motion.div>
@@ -290,7 +290,7 @@ const SchemesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-6xl lg:text-8xl font-serif font-bold leading-tight mb-8"
+            className="text-4xl md:text-6xl lg:text-8xl font-serif font-bold leading-tight mb-6 md:mb-8"
           >
             Unlock Your <span className="text-gradient italic">Benefits.</span>
           </motion.h1>
@@ -298,27 +298,27 @@ const SchemesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-xl lg:text-2xl font-light max-w-2xl leading-relaxed"
+            className="text-white/40 text-base md:text-xl lg:text-2xl font-light max-w-2xl leading-relaxed"
           >
             Most Indian home buyers miss out on ₹2.5 Lakh+ in government benefits. Use our AI-powered engine to discover and claim your entitlements.
           </motion.p>
         </div>
 
         {/* Eligibility Checker - PREMIUM UI */}
-        <section id="eligibility-engine" className="mb-24 relative z-[60] scroll-mt-32">
+        <section id="eligibility-engine" className="mb-16 md:mb-24 relative z-[60] scroll-mt-32">
           <AnimatePresence>
             {refinementMode && (
               <motion.div 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-center mb-8"
+                className="flex items-center justify-center mb-6 md:mb-8 px-4"
               >
-                <div className="px-6 py-3 rounded-2xl glass-panel border-amber-primary/30 bg-amber-primary/10 flex items-center gap-4 shadow-amber-glow">
-                  <Sparkles size={16} className="text-amber-primary animate-pulse" />
-                  <p className="text-xs font-bold text-amber-primary">Add a few more details to get more accurate results</p>
+                <div className="px-4 md:px-6 py-2.5 md:py-3 rounded-2xl glass-panel border-amber-primary/30 bg-amber-primary/10 flex items-center gap-3 md:gap-4 shadow-amber-glow">
+                  <Sparkles size={14} className="text-amber-primary animate-pulse shrink-0" />
+                  <p className="text-[10px] md:text-xs font-bold text-amber-primary">Add details for more accurate results</p>
                   <button 
                     onClick={() => setRefinementMode(false)}
-                    className="ml-4 text-[10px] font-black uppercase text-white/30 hover:text-white transition-colors"
+                    className="ml-2 md:ml-4 text-[8px] md:text-[10px] font-black uppercase text-white/30 hover:text-white transition-colors"
                   >
                     Dismiss
                   </button>
@@ -327,27 +327,27 @@ const SchemesPage = () => {
             )}
           </AnimatePresence>
 
-          <div className="glass-panel p-10 lg:p-16 rounded-[4rem] border-white/5 bg-white/[0.01] relative group !overflow-visible z-[60]">
-            <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:rotate-12 transition-transform overflow-hidden pointer-events-none">
+          <div className="glass-panel p-6 md:p-10 lg:p-16 rounded-[2.5rem] md:rounded-[4rem] border-white/5 bg-white/[0.01] relative group !overflow-visible z-[60]">
+            <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:rotate-12 transition-transform overflow-hidden pointer-events-none hidden md:block">
                <Calculator size={120} className="text-amber-primary" />
             </div>
             
             <div className="relative z-10 !overflow-visible">
-              <div className="flex items-center gap-4 mb-10">
-                <Sparkles size={24} className="text-amber-primary" />
-                <h2 className="text-4xl font-serif font-bold">Eligibility AI Engine</h2>
+              <div className="flex items-center gap-4 mb-8 md:mb-10">
+                <Sparkles size={20} md:size={24} className="text-amber-primary" />
+                <h2 className="text-2xl md:text-4xl font-serif font-bold">Eligibility AI Engine</h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 !overflow-visible items-end">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 !overflow-visible items-end">
                 
                 {/* CUSTOM PREMIUM DROPDOWN */}
                 <div className="relative !overflow-visible">
-                  <label className="text-[10px] text-white/20 block mb-4 font-black uppercase tracking-[0.3em]">Annual Family Income</label>
+                  <label className="text-[10px] text-white/20 block mb-3 md:mb-4 font-black uppercase tracking-[0.3em]">Annual Income</label>
                   <button 
                     onClick={() => setIsIncomeOpen(!isIncomeOpen)}
-                    className={`w-full flex items-center justify-between px-6 py-5 glass-panel rounded-2xl border-white/10 transition-all duration-300 ${isIncomeOpen ? 'border-amber-primary/40 bg-amber-primary/5 shadow-amber-glow' : 'hover:border-white/30'}`}
+                    className={`w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 glass-panel rounded-2xl border-white/10 transition-all duration-300 ${isIncomeOpen ? 'border-amber-primary/40 bg-amber-primary/5 shadow-amber-glow' : 'hover:border-white/30'}`}
                   >
-                    <span className={`text-sm font-medium ${income ? 'text-white' : 'text-white/20'}`}>
+                    <span className={`text-xs md:text-sm font-medium ${income ? 'text-white' : 'text-white/20'}`}>
                       {income ? incomeOptions.find(o => o.id === income)?.label.split(' (')[0] : 'Select Income'}
                     </span>
                     <motion.div animate={{ rotate: isIncomeOpen ? 180 : 0 }}>
@@ -361,7 +361,7 @@ const SchemesPage = () => {
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute left-0 right-0 mt-3 glass-panel border-white/10 p-3 rounded-3xl z-[50] shadow-[0_30px_100px_rgba(0,0,0,0.8)] backdrop-blur-3xl bg-black/95 max-h-[400px] overflow-y-auto custom-scrollbar"
+                        className="absolute left-0 right-0 mt-3 glass-panel border-white/10 p-2 md:p-3 rounded-2xl md:rounded-3xl z-[70] shadow-[0_30px_100px_rgba(0,0,0,0.8)] backdrop-blur-3xl bg-black/95 max-h-[300px] md:max-h-[400px] overflow-y-auto custom-scrollbar"
                       >
                         {incomeOptions.map((option) => (
                           <button
@@ -370,7 +370,7 @@ const SchemesPage = () => {
                               setIncome(option.id);
                               setIsIncomeOpen(false);
                             }}
-                            className={`w-full text-left px-6 py-4 rounded-2xl text-sm font-bold transition-all mb-1 last:mb-0 ${
+                            className={`w-full text-left px-4 md:px-6 py-3 md:py-4 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold transition-all mb-1 last:mb-0 ${
                               income === option.id 
                               ? 'bg-amber-primary/10 text-amber-primary' 
                               : 'text-white/40 hover:bg-white/5 hover:text-white'
@@ -385,17 +385,17 @@ const SchemesPage = () => {
                 </div>
 
                 <div>
-                  <label className="text-[10px] text-white/20 block mb-4 font-black uppercase tracking-[0.3em]">First-Time Buyer?</label>
+                  <label className="text-[10px] text-white/20 block mb-3 md:mb-4 font-black uppercase tracking-[0.3em]">First-Time Buyer?</label>
                   <div className="flex gap-3">
                     <button 
                       onClick={() => setIsFirstBuyer(true)}
-                      className={`flex-1 py-5 rounded-2xl border-2 transition-all font-bold text-sm ${isFirstBuyer === true ? 'border-amber-primary bg-amber-primary/10 text-amber-primary shadow-amber-glow' : 'border-white/5 bg-white/5 text-white/40 hover:border-white/20'}`}
+                      className={`flex-1 py-4 md:py-5 rounded-2xl border-2 transition-all font-bold text-xs md:text-sm ${isFirstBuyer === true ? 'border-amber-primary bg-amber-primary/10 text-amber-primary shadow-amber-glow' : 'border-white/5 bg-white/5 text-white/40 hover:border-white/20'}`}
                     >
                       Yes
                     </button>
                     <button 
                       onClick={() => setIsFirstBuyer(false)}
-                      className={`flex-1 py-5 rounded-2xl border-2 transition-all font-bold text-sm ${isFirstBuyer === false ? 'border-amber-primary bg-amber-primary/10 text-amber-primary shadow-amber-glow' : 'border-white/5 bg-white/5 text-white/40 hover:border-white/20'}`}
+                      className={`flex-1 py-4 md:py-5 rounded-2xl border-2 transition-all font-bold text-xs md:text-sm ${isFirstBuyer === false ? 'border-amber-primary bg-amber-primary/10 text-amber-primary shadow-amber-glow' : 'border-white/5 bg-white/5 text-white/40 hover:border-white/20'}`}
                     >
                       No
                     </button>
@@ -403,25 +403,25 @@ const SchemesPage = () => {
                 </div>
 
                 <div>
-                  <label className="text-[10px] text-white/20 block mb-4 font-black uppercase tracking-[0.3em]">Property Value (₹)</label>
+                  <label className="text-[10px] text-white/20 block mb-3 md:mb-4 font-black uppercase tracking-[0.3em]">Property Value (₹)</label>
                   <input 
                     type="number"
                     placeholder="e.g. 4500000"
                     value={propertyValue}
                     onChange={(e) => setPropertyValue(e.target.value)}
-                    className="w-full px-6 py-5 glass-panel rounded-2xl border-white/10 bg-white/5 text-sm font-bold text-white placeholder:text-white/20 outline-none focus:border-amber-primary/40 focus:bg-amber-primary/5 transition-all"
+                    className="w-full px-5 md:px-6 py-4 md:py-5 glass-panel rounded-2xl border-white/10 bg-white/5 text-xs md:text-sm font-bold text-white placeholder:text-white/20 outline-none focus:border-amber-primary/40 focus:bg-amber-primary/5 transition-all"
                   />
                   {calculationResult && Number(propertyValue) > 4500000 && (
-                    <p className="mt-2 text-[10px] text-amber-primary/60 font-bold italic">Tip: PMAY requires property below ₹45L</p>
+                    <p className="mt-2 text-[10px] text-amber-primary/60 font-bold italic">Tip: PMAY limit ₹45L</p>
                   )}
                 </div>
 
                 <div className="flex items-end">
                   <button 
                     onClick={calculateBenefits}
-                    className="btn-amber w-full py-5 text-sm font-bold shadow-amber-glow-strong flex items-center justify-center gap-3 transition-transform active:scale-95"
+                    className="btn-amber w-full py-4 md:py-5 text-xs md:text-sm font-bold shadow-amber-glow-strong flex items-center justify-center gap-3 transition-transform active:scale-95"
                   >
-                    Calculate Benefits <ArrowRight size={18} />
+                    Calculate <ArrowRight size={18} />
                   </button>
                 </div>
               </div>
@@ -431,16 +431,16 @@ const SchemesPage = () => {
                 {calculationResult && (
                   <motion.div 
                     initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                    animate={{ opacity: 1, height: 'auto', marginTop: 48 }}
+                    animate={{ opacity: 1, height: 'auto', marginTop: 32 }}
                     exit={{ opacity: 0, height: 0, marginTop: 0 }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-12 border-t border-white/10">
-                      <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="pt-8 md:pt-12 border-t border-white/10">
+                      <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                         <div>
-                          <p className="text-[10px] text-amber-primary font-black uppercase tracking-[0.4em] mb-4">Your Personalized Result</p>
-                          <h3 className="text-5xl font-serif font-bold mb-4">You can save up to <span className="text-gradient italic">{formatCurrency(calculationResult.totalMin)} – {formatCurrency(calculationResult.totalMax)}</span></h3>
-                          <p className="text-white/40 text-lg">
+                          <p className="text-[10px] text-amber-primary font-black uppercase tracking-[0.4em] mb-3 md:mb-4">Your Personalized Result</p>
+                          <h3 className="text-3xl md:text-5xl font-serif font-bold mb-4">You can save <span className="text-gradient italic">{formatCurrency(calculationResult.totalMin)} – {formatCurrency(calculationResult.totalMax)}</span></h3>
+                          <p className="text-white/40 text-base md:text-lg">
                             {calculationResult.isHighValue 
                               ? "High-value property limits eligibility for most government subsidy schemes."
                               : `Based on your inputs, you qualify for ${calculationResult.qualifiedCount} major benefits.`
@@ -448,21 +448,20 @@ const SchemesPage = () => {
                           </p>
                         </div>
                         
-                        <div className="space-y-4">
+                        <div className="space-y-3 md:space-y-4">
                           {calculationResult.schemes.map((s, i) => (
-                            <div key={i} className="flex items-center justify-between p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
+                            <div key={i} className="flex items-center justify-between p-4 md:p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-all">
                               <div>
-                                <h4 className="text-sm font-bold flex items-center gap-2">
-                                  {s.status === 'Eligible' ? <CheckCircle2 size={16} className="text-success" /> : s.status === 'Not Eligible' ? <AlertCircle size={16} className="text-critical" /> : <Info size={16} className="text-amber-primary/40" />}
+                                <h4 className="text-xs md:text-sm font-bold flex items-center gap-2">
+                                  {s.status === 'Eligible' ? <CheckCircle2 size={14} className="text-success" /> : s.status === 'Not Eligible' ? <AlertCircle size={14} className="text-critical" /> : <Info size={14} className="text-amber-primary/40" />}
                                   {s.name}
                                 </h4>
-                                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest mt-1">
+                                <p className="text-[8px] md:text-[10px] text-white/30 font-bold uppercase tracking-widest mt-1">
                                   {s.status} {s.reason && `• ${s.reason}`}
                                 </p>
                               </div>
                               <div className="text-right">
-                                <p className={`text-xl font-mono font-bold ${s.amount === '₹0' ? 'text-white/20' : 'text-amber-primary'}`}>{s.amount}</p>
-                                {s.note && <p className="text-[9px] text-white/20 italic">{s.note}</p>}
+                                <p className={`text-base md:text-xl font-mono font-bold ${s.amount === '₹0' ? 'text-white/20' : 'text-amber-primary'}`}>{s.amount}</p>
                               </div>
                             </div>
                           ))}
@@ -474,9 +473,9 @@ const SchemesPage = () => {
                           const el = document.getElementById('schemes-grid');
                           el?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="mt-10 w-full py-5 rounded-2xl border border-white/10 text-white/40 text-[10px] font-black uppercase tracking-widest hover:bg-white/5 hover:text-white hover:border-white/20 transition-all flex items-center justify-center gap-3 group"
+                        className="mt-8 md:mt-10 w-full py-4 md:py-5 rounded-2xl border border-white/10 text-white/40 text-[10px] font-black uppercase tracking-widest hover:bg-white/5 hover:text-white hover:border-white/20 transition-all flex items-center justify-center gap-3 group"
                       >
-                        Scroll to View Details & Apply <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        View Details & Apply <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>
                   </motion.div>
@@ -487,7 +486,7 @@ const SchemesPage = () => {
         </section>
 
         {/* Schemes Grid */}
-        <div id="schemes-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-mt-32">
+        <div id="schemes-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 scroll-mt-32 px-4 md:px-0">
           {mockSchemes.map((scheme, index) => (
             <motion.div
               key={scheme.id}
@@ -495,58 +494,58 @@ const SchemesPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card p-8 rounded-[2.5rem] border-white/5 shadow-premium flex flex-col group hover:border-amber-primary/20 transition-all duration-500 h-full"
+              className="glass-card p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] border-white/5 shadow-premium flex flex-col group hover:border-amber-primary/20 transition-all duration-500 h-full"
             >
-              <div className="flex justify-between items-start mb-6">
-                <span className={`px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest border ${
+              <div className="flex justify-between items-start mb-4 md:mb-6">
+                <span className={`px-2.5 md:px-3 py-1 md:py-1.5 rounded-lg md:rounded-xl text-[8px] md:text-[9px] font-black uppercase tracking-widest border ${
                   scheme.category === 'central' ? 'bg-blue-500/5 text-blue-400 border-blue-500/20' : 
                   scheme.category === 'tax' ? 'bg-purple-500/5 text-purple-400 border-purple-500/20' : 'bg-success/5 text-success border-success/20'
                 }`}>
-                  {scheme.category} Authority
+                  {scheme.category}
                 </span>
                 <div className="flex items-center gap-2 text-[8px] font-black uppercase tracking-widest text-white/20">
                   {scheme.status === 'expired' ? (
                     <span className="text-critical flex items-center gap-1">
-                      <AlertCircle size={12} /> EXPIRED
+                      <AlertCircle size={10} /> EXPIRED
                     </span>
                   ) : (
                     <>
-                      <Clock size={12} className="text-amber-primary/40" /> {scheme.deadline}
+                      <Clock size={10} className="text-amber-primary/40" /> {scheme.deadline}
                     </>
                   )}
                 </div>
               </div>
 
-              <h3 className="text-2xl font-serif font-bold mb-4 leading-tight h-16 line-clamp-2 group-hover:text-amber-primary transition-colors">{scheme.name}</h3>
+              <h3 className="text-xl md:text-2xl font-serif font-bold mb-3 md:mb-4 leading-tight min-h-[3rem] line-clamp-2 group-hover:text-amber-primary transition-colors">{scheme.name}</h3>
               
-              <div className="my-6 p-6 bg-white/[0.02] rounded-2xl border border-white/5 group-hover:bg-amber-primary/5 transition-all">
-                <p className="text-[9px] text-white/20 uppercase font-black tracking-widest mb-1.5">Max Benefit</p>
-                <p className="text-4xl font-mono font-bold text-white group-hover:text-amber-primary transition-colors tracking-tighter">{scheme.benefitAmount}</p>
+              <div className="my-4 md:my-6 p-4 md:p-6 bg-white/[0.02] rounded-xl md:rounded-2xl border border-white/5 group-hover:bg-amber-primary/5 transition-all">
+                <p className="text-[8px] md:text-[9px] text-white/20 uppercase font-black tracking-widest mb-1">Max Benefit</p>
+                <p className="text-3xl md:text-4xl font-mono font-bold text-white group-hover:text-amber-primary transition-colors tracking-tighter">{scheme.benefitAmount}</p>
               </div>
 
-              <div className="space-y-4 mb-8 flex-1">
-                <div className="flex items-start gap-3 text-white/50 leading-relaxed">
-                  <CheckCircle2 size={16} className="text-success shrink-0 mt-1" />
-                  <span className="text-[13px] font-medium line-clamp-2">{scheme.eligibility}</span>
+              <div className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-1">
+                <div className="flex items-start gap-2 md:gap-3 text-white/50 leading-relaxed">
+                  <CheckCircle2 size={14} className="text-success shrink-0 mt-1" />
+                  <span className="text-xs md:text-[13px] font-medium line-clamp-2">{scheme.eligibility}</span>
                 </div>
-                <div className="flex items-start gap-3 text-white/30 leading-relaxed italic">
-                  <Info size={16} className="text-amber-primary/40 shrink-0 mt-1" />
-                  <span className="text-[12px] line-clamp-3">{scheme.description}</span>
+                <div className="flex items-start gap-2 md:gap-3 text-white/30 leading-relaxed italic">
+                  <Info size={14} className="text-amber-primary/40 shrink-0 mt-1" />
+                  <span className="text-[11px] md:text-[12px] line-clamp-3">{scheme.description}</span>
                 </div>
               </div>
 
-              <div className="flex gap-3 pt-6 border-t border-white/5 mt-auto">
+              <div className="flex gap-2 md:gap-3 pt-4 md:pt-6 border-t border-white/5 mt-auto">
                 <button 
                   onClick={() => setSelectedScheme(scheme)}
-                  className="flex-1 p-3 rounded-xl glass-panel border-white/10 text-[9px] font-black uppercase tracking-widest hover:bg-white/10 transition-all text-white/60"
+                  className="flex-1 p-2 md:p-3 rounded-lg md:rounded-xl glass-panel border-white/10 text-[8px] md:text-[9px] font-black uppercase tracking-widest hover:bg-white/10 transition-all text-white/60"
                 >
                    Guide
                 </button>
                 <button 
                   onClick={() => window.open(scheme.applyUrl, '_blank')}
-                  className="flex-1 btn-amber !py-3 !px-0 text-[9px] font-black uppercase tracking-widest shadow-amber-glow flex items-center justify-center gap-2"
+                  className="flex-1 btn-amber !py-2.5 md:!py-3 !px-0 text-[8px] md:text-[9px] font-black uppercase tracking-widest shadow-amber-glow flex items-center justify-center gap-1 md:gap-2"
                 >
-                  {scheme.applyLabel} <ArrowRight size={12} />
+                  {scheme.applyLabel.split(' ')[0]} <ArrowRight size={12} />
                 </button>
               </div>
             </motion.div>
@@ -554,23 +553,23 @@ const SchemesPage = () => {
         </div>
 
         {/* Missing Money Global CTA */}
-        <section className="mt-48">
-          <div className="glass-panel p-20 rounded-[4rem] text-center relative overflow-hidden border-white/5 bg-amber-primary/5">
-            <div className="absolute top-0 left-0 p-10 opacity-5 group-hover:rotate-12 transition-transform">
+        <section className="mt-24 md:mt-48 px-4 md:px-0">
+          <div className="glass-panel p-10 md:p-20 rounded-[2.5rem] md:rounded-[4rem] text-center relative overflow-hidden border-white/5 bg-amber-primary/5">
+            <div className="absolute top-0 left-0 p-10 opacity-5 group-hover:rotate-12 transition-transform hidden md:block">
                <ShieldCheck size={160} className="text-amber-primary" />
             </div>
-            <h2 className="text-5xl lg:text-7xl font-serif font-bold mb-8 italic text-amber-primary">Don't Leave Money on the Table.</h2>
-            <p className="text-white/40 text-2xl max-w-3xl mx-auto mb-12 font-light leading-relaxed">
-              We've helped users recover over <span className="text-white font-bold">₹150 Crores</span> in unclaimed government subsidies.
+            <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif font-bold mb-6 md:mb-8 italic text-amber-primary leading-tight">Don't Leave Money on the Table.</h2>
+            <p className="text-white/40 text-lg md:text-2xl max-w-3xl mx-auto mb-8 md:mb-12 font-light leading-relaxed">
+              We've helped users recover over <span className="text-white font-bold">₹150 Crores</span> in unclaimed subsidies.
             </p>
             <button 
               onClick={() => {
                 setRefinementMode(true);
                 document.getElementById('eligibility-engine')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="btn-amber !py-7 !px-16 text-xl font-bold shadow-amber-glow-strong"
+              className="btn-amber !py-5 md:!py-7 !px-10 md:!px-16 text-base md:text-xl font-bold shadow-amber-glow-strong"
             >
-              {calculationResult ? 'Improve My Results' : 'Check Full Eligibility'}
+              {calculationResult ? 'Improve Results' : 'Check Eligibility'}
             </button>
           </div>
         </section>

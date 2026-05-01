@@ -276,19 +276,19 @@ const MapPage = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-dark-bg">
 
-      {/* Back Button */}
+      {/* Back Button - Hidden on mobile as per user request */}
       <button
         onClick={() => navigate(-1)}
-        className="absolute top-6 left-6 z-[1000] p-3 rounded-xl backdrop-blur-md shadow-2xl border border-white/10 bg-black/60 text-white hover:border-amber-primary/50 transition-all flex items-center gap-2 text-sm font-semibold"
+        className="hidden md:flex absolute top-6 left-6 z-[1200] p-3 rounded-xl backdrop-blur-md shadow-2xl border border-white/10 bg-black/60 text-white hover:border-amber-primary/50 transition-all items-center gap-2 text-sm font-semibold"
         title="Go Back"
       >
-        ← Back
+        <span className="text-lg">←</span> <span>Back</span>
       </button>
 
       {/* Search Bar & Property Dropdown */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-[1100] w-full max-w-lg px-4">
-        <div className="bg-black/90 backdrop-blur-xl flex items-center p-2 rounded-full shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-amber-primary/40 ring-1 ring-white/10">
-          <MapPin className="ml-4 text-amber-primary flex-shrink-0" size={20} />
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1100] w-full max-w-md md:max-w-lg px-4 md:top-6">
+        <div className="bg-black/90 backdrop-blur-xl flex items-center p-1.5 md:p-2 rounded-full shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-amber-primary/40 ring-1 ring-white/10">
+          <MapPin className="ml-3 md:ml-4 text-amber-primary flex-shrink-0" size={18} md:size={20} />
           {isLoaded && (
             <Autocomplete
               onLoad={onAutocompleteLoad}
@@ -301,13 +301,13 @@ const MapPage = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                placeholder="Search for a city, area or street..."
-                className="w-full bg-transparent border-none outline-none px-4 py-3 text-sm text-white placeholder-gray-500 font-medium"
+                placeholder="Search area..."
+                className="w-full bg-transparent border-none outline-none px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-white placeholder-gray-500 font-medium"
               />
             </Autocomplete>
           )}
-          <button className="bg-amber-primary hover:bg-amber-500 text-black rounded-full p-3 mr-1 flex-shrink-0 transition-colors shadow-lg">
-            <Navigation size={18} fill="currentColor" />
+          <button className="bg-amber-primary hover:bg-amber-500 text-black rounded-full p-2.5 md:p-3 mr-0.5 md:mr-1 flex-shrink-0 transition-colors shadow-lg">
+            <Navigation size={16} md:size={18} fill="currentColor" />
           </button>
         </div>
 
@@ -318,37 +318,31 @@ const MapPage = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="mt-2 bg-black/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden max-h-80 overflow-y-auto"
+              className="mt-2 bg-black/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden max-h-60 md:max-h-80 overflow-y-auto"
             >
               <div className="p-3 border-b border-white/5 bg-white/5 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-widest font-bold text-gray-500">Verified Properties</span>
-                <span className="text-[10px] text-amber-primary font-mono">{filteredProperties.length} found</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-gray-500">Properties</span>
+                <span className="text-[10px] text-amber-primary font-mono">{filteredProperties.length}</span>
               </div>
               {filteredProperties.length > 0 ? (
                 filteredProperties.map(home => (
                   <button
                     key={home.id}
                     onClick={() => handlePropertySelect(home)}
-                    className="w-full p-4 flex items-start gap-3 hover:bg-white/5 transition-colors border-b border-white/5 text-left"
+                    className="w-full p-3 md:p-4 flex items-start gap-3 hover:bg-white/5 transition-colors border-b border-white/5 text-left"
                   >
-                    <div className="bg-amber-primary/10 p-2 rounded-lg text-amber-primary">
-                      <MapPin size={16} />
+                    <div className="bg-amber-primary/10 p-2 rounded-lg text-amber-primary flex-shrink-0">
+                      <MapPin size={14} md:size={16} />
                     </div>
-                    <div>
-                      <p className="text-sm font-bold text-white">{home.title}</p>
-                      <p className="text-xs text-gray-500">{home.address}</p>
-                      <div className="flex items-center gap-3 mt-1">
-                        <span className="text-[10px] font-mono text-amber-primary">₹{(home.rent/1000).toFixed(0)}k/mo</span>
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full ${home.risk === 'low' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
-                          {home.risk} risk
-                        </span>
-                      </div>
+                    <div className="min-w-0">
+                      <p className="text-xs md:text-sm font-bold text-white truncate">{home.title}</p>
+                      <p className="text-[10px] md:text-xs text-gray-500 truncate">{home.address}</p>
                     </div>
                   </button>
                 ))
               ) : (
-                <div className="p-8 text-center text-gray-500 text-sm">
-                  No matching properties found
+                <div className="p-6 text-center text-gray-500 text-xs">
+                  No matches
                 </div>
               )}
             </motion.div>
@@ -356,30 +350,30 @@ const MapPage = () => {
         </AnimatePresence>
       </div>
 
-      {/* Right Controls */}
-      <div className="absolute right-6 top-6 z-[1000] flex flex-col gap-2">
+      {/* Map Controls - Responsive Positioning */}
+      <div className="absolute right-4 top-20 md:top-6 md:right-6 z-[1000] flex flex-col gap-2">
         <button
           onClick={() => setShowFilters(!showFilters)}
-          className={`p-3 rounded-xl backdrop-blur-md shadow-2xl border transition-all ${showFilters ? 'bg-amber-primary text-black border-amber-primary' : 'bg-black/60 text-white border-white/10 hover:border-amber-primary/50'}`}
+          className={`p-2.5 md:p-3 rounded-xl backdrop-blur-md shadow-2xl border transition-all ${showFilters ? 'bg-amber-primary text-black border-amber-primary' : 'bg-black/60 text-white border-white/10 hover:border-amber-primary/50'}`}
           title="Map Layers"
         >
-          <Layers size={20} />
+          <Layers size={18} md:size={20} />
         </button>
         <button
           onClick={() => setShowList(!showList)}
-          className={`p-3 rounded-xl backdrop-blur-md shadow-2xl border transition-all ${showList ? 'bg-amber-primary text-black border-amber-primary' : 'bg-black/60 text-white border-white/10 hover:border-amber-primary/50'}`}
+          className={`p-2.5 md:p-3 rounded-xl backdrop-blur-md shadow-2xl border transition-all ${showList ? 'bg-amber-primary text-black border-amber-primary' : 'bg-black/60 text-white border-white/10 hover:border-amber-primary/50'}`}
           title="Property List"
         >
-          <List size={20} />
+          <List size={18} md:size={20} />
         </button>
         {/* Theme Picker Button */}
         <div className="relative">
           <button
             onClick={() => setShowThemePicker(!showThemePicker)}
-            className={`p-3 rounded-xl backdrop-blur-md shadow-2xl border transition-all ${showThemePicker ? 'bg-amber-primary text-black border-amber-primary' : 'bg-black/60 text-white border-white/10 hover:border-amber-primary/50'}`}
+            className={`p-2.5 md:p-3 rounded-xl backdrop-blur-md shadow-2xl border transition-all ${showThemePicker ? 'bg-amber-primary text-black border-amber-primary' : 'bg-black/60 text-white border-white/10 hover:border-amber-primary/50'}`}
             title="Map Theme"
           >
-            <span className="text-lg leading-none">{mapThemes[mapTheme].emoji}</span>
+            <span className="text-base md:text-lg leading-none">{mapThemes[mapTheme].emoji}</span>
           </button>
           <AnimatePresence>
             {showThemePicker && (
@@ -387,15 +381,15 @@ const MapPage = () => {
                 initial={{ opacity: 0, x: 20, scale: 0.95 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 20, scale: 0.95 }}
-                className="absolute right-14 top-0 bg-black/80 backdrop-blur-md p-3 rounded-2xl border border-white/10 shadow-2xl"
+                className="absolute right-12 md:right-14 top-0 bg-black/80 backdrop-blur-md p-2 md:p-3 rounded-2xl border border-white/10 shadow-2xl"
               >
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 whitespace-nowrap">Map Theme</h4>
+                <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 whitespace-nowrap">Map Theme</h4>
                 <div className="space-y-1">
                   {Object.entries(mapThemes).map(([key, theme]) => (
                     <button
                       key={key}
                       onClick={() => { setMapTheme(key); setShowThemePicker(false); if(map && key === 'satellite') { map.setMapTypeId('hybrid'); } else if(map) { map.setMapTypeId('roadmap'); } }}
-                      className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all whitespace-nowrap ${
+                      className={`w-full flex items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm transition-all whitespace-nowrap ${
                         mapTheme === key ? 'bg-amber-primary/20 text-amber-primary border border-amber-primary/50' : 'hover:bg-white/5 text-gray-300'
                       }`}
                     >
@@ -414,13 +408,13 @@ const MapPage = () => {
               initial={{ opacity: 0, x: 20, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 20, scale: 0.95 }}
-              className="absolute right-14 top-0 bg-black/80 backdrop-blur-md p-4 rounded-2xl w-52 space-y-3 border border-white/10 shadow-2xl"
+              className="absolute right-12 md:right-14 top-0 bg-black/80 backdrop-blur-md p-3 md:p-4 rounded-2xl w-44 md:w-52 space-y-3 border border-white/10 shadow-2xl"
             >
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Map Layers</h4>
+              <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Map Layers</h4>
               {[
-                { id: 'safety', label: 'Safety Zones', icon: <Shield size={14} /> },
-                { id: 'water', label: 'Water Reliability', icon: <Zap size={14} /> },
-                { id: 'noise', label: 'Noise Levels', icon: <Volume2 size={14} /> },
+                { id: 'safety', label: 'Safety Zones', icon: <Shield size={12} /> },
+                { id: 'water', label: 'Water Reliability', icon: <Zap size={12} /> },
+                { id: 'noise', label: 'Noise Levels', icon: <Volume2 size={12} /> },
               ].map((layer) => (
                 <button
                   key={layer.id}
@@ -431,7 +425,7 @@ const MapPage = () => {
                       setActiveLayer(layer.id);
                     }
                   }}
-                  className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${activeLayer === layer.id ? 'bg-amber-primary/20 text-amber-primary border border-amber-primary/50' : 'hover:bg-white/5 text-gray-300'}`}
+                  className={`w-full flex items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm transition-all ${activeLayer === layer.id ? 'bg-amber-primary/20 text-amber-primary border border-amber-primary/50' : 'hover:bg-white/5 text-gray-300'}`}
                 >
                   {layer.icon} {layer.label}
                 </button>
@@ -440,23 +434,23 @@ const MapPage = () => {
               {activeLayer && (
                 <button
                   onClick={resetAllLayers}
-                  className="w-full mt-2 flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/30 transition-all"
+                  className="w-full mt-1 md:mt-2 flex items-center justify-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-[10px] font-bold bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/30 transition-all"
                 >
-                  <X size={12} /> Turn Off Map Zones
+                  <X size={10} /> Turn Off Zones
                 </button>
               )}
 
-              <div className="border-t border-white/10 pt-3 space-y-2">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Nearby</h4>
-                <label className="flex items-center gap-2 text-sm cursor-pointer">
+              <div className="border-t border-white/10 pt-2 md:pt-3 space-y-2">
+                <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 md:mb-2">Nearby</h4>
+                <label className="flex items-center gap-2 text-xs cursor-pointer">
                   <input type="checkbox" checked={showHospitals} onChange={e => setShowHospitals(e.target.checked)} className="accent-red-500" />
                   <span className="text-red-400 font-bold">+</span> Hospitals
                 </label>
-                <label className="flex items-center gap-2 text-sm cursor-pointer">
+                <label className="flex items-center gap-2 text-xs cursor-pointer">
                   <input type="checkbox" checked={showGardens} onChange={e => setShowGardens(e.target.checked)} className="accent-green-500" />
                   <span>🌳</span> Gardens
                 </label>
-                <label className="flex items-center gap-2 text-sm cursor-pointer">
+                <label className="flex items-center gap-2 text-xs cursor-pointer">
                   <input type="checkbox" checked={showTemples} onChange={e => setShowTemples(e.target.checked)} className="accent-amber-500" />
                   <span>🛕</span> Temples
                 </label>
