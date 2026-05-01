@@ -124,28 +124,28 @@ HomeTruth AI serves as a unified decision intelligence platform that reveals:
 ## 🖼️ UI Showcase
 
 ### 🏠 Landing Page
-![Landing Page UI](https://via.placeholder.com/1200x600?text=Landing+Page+UI)
+![Landing Page UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636976/Screenshot_2026-05-01_171301_wvd8an.png)
 
 ### 🗺️ Interactive Map
-![Map Page UI](https://via.placeholder.com/1200x600?text=Map+Page+UI)
+![Map Page UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636978/Screenshot_2026-05-01_171514_t5i9al.png)
 
 ### 📊 Property Details & Health Score
-![Property Details UI](https://via.placeholder.com/1200x600?text=Property+Details+UI)
+![Property Details UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636974/Screenshot_2026-05-01_171621_jcswfc.png)
 
 ### 🎥 3D Virtual Tours
-![Virtual Tours UI](https://via.placeholder.com/1200x600?text=Virtual+Tours+UI)
+![Virtual Tours UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636976/Screenshot_2026-05-01_171721_eg7rpl.png)
 
 ### 🏦 Loan Optimizer
-![Loan Optimizer UI](https://via.placeholder.com/1200x600?text=Loan+Optimizer+UI)
+![Loan Optimizer UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636972/Screenshot_2026-05-01_171835_y7jzw1.png)
 
 ### 🏛️ Government Schemes
-![Schemes Page UI](https://via.placeholder.com/1200x600?text=Schemes+Page+UI)
+![Schemes Page UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636977/Screenshot_2026-05-01_171914_tp6txy.png)
 
 ### 🛠️ Home Services
-![Services Page UI](https://via.placeholder.com/1200x600?text=Services+Page+UI)
+![Services Page UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636974/Screenshot_2026-05-01_172107_ggc6qx.png)
 
 ### 📱 User Dashboard
-![Dashboard UI](https://via.placeholder.com/1200x600?text=Dashboard+UI)
+![Dashboard UI](https://res.cloudinary.com/dhzhzxczn/image/upload/v1777636975/Screenshot_2026-05-01_172152_dxouio.png)
 
 ---
 
