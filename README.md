@@ -297,8 +297,8 @@ HomeTruth AI/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/KamleshChandela/HomeTruth-AI.git
-cd HomeTruth-AI
+git clone https://github.com/kamleshchandela/homeTruth_AI.git
+cd homeTruth_AI
 ```
 
 ### Environment Variables
@@ -368,6 +368,7 @@ npm run build
 | **Frontend (Production)** | https://home-truth-ai.vercel.app/ |
 | **Backend (API)** | https://hometruth-ai.onrender.com |
 | **API Documentation** | https://documenter.getpostman.com/view/50839341/2sBXqJLLzS |
+| **Youtube Video Link** | https://youtu.be/tcbfzpFOa5Q?si=yVKgBpjQ379y0hr- |
 
 ---
 
